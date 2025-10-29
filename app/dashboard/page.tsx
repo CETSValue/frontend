@@ -1,3 +1,6 @@
+'use client';
+import { useUser } from "@auth0/nextjs-auth0"
+
 import { AppSidebar } from "@/components/app-sidebar"
 import { ChartAreaInteractive } from "@/components/chart-area-interactive"
 import { SupplyValueChainOverview } from "@/components/supply-value-chain-overview"
@@ -13,6 +16,9 @@ import {
 import data from "./data.json"
 
 export default function Page() {
+  const { user, isLoading } = useUser();
+  console.log(user);
+
   return (
     <SidebarProvider
       style={

@@ -147,9 +147,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   }
 
   if (user) {
-    logged_as.name = user.nickname
-    logged_as.email = user.email
-    logged_as.avatar = user.picture
+    if (user.nickname) {
+      logged_as.name = user.nickname
+    }
+    if (user.email) {
+      logged_as.email = user.email
+    }
+    if (user.picture) {
+      logged_as.avatar = user.picture
+    }
   }
 
   return (

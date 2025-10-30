@@ -74,6 +74,10 @@ export default function Page() {
               SGD IMPACT
               </div>
               <SectionSGDImpact />
+              <div className="px-4 lg:px-10" style={{fontWeight:'bold', color: '#6634A2'}}>
+              SUPPLY & VALUE CHAIN OVERVIEW
+              </div>
+            
               <div className="px-4 lg:px-6">
                 <SupplyValueChainOverview />
               </div>

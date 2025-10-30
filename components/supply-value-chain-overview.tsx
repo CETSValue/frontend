@@ -183,9 +183,9 @@ export function SupplyValueChainOverview() {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardTitle>Supply / Value Chain Overview</CardTitle>
+        <CardTitle>Material Flow</CardTitle>
         <CardDescription>
-          <span className="hidden @[540px]/card:block">
+          <span className="hidden @[540px]/card:block text-gray-500" >
             Last updated on 22 Oct 2025
           </span>
         </CardDescription>

@@ -4,9 +4,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from "recharts";
 import { Button } from "@/components/ui/button";
 
+interface Metric {
+  name: string;
+  value: number
+}
+
+interface DataPoint {
+  category: string;
+  metrics: Metric
+}
 export default function SustainabilityWidget() {
   const [data, setData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("Circular Economy");
+  
 
   useEffect(() => {
     // Fetch sustainability data from local JSON
@@ -17,9 +26,16 @@ export default function SustainabilityWidget() {
   }, []);
 
   const categories = ["Circular Economy", "Sustainability", "Water", "Energy"];
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
-  const filteredData = data.find((item) => { if (item && item['category'] === selectedCategory) { return item['metrics'] } return [] })
+  const filteredData0 = data.find(item => item['category'] === selectedCategory)
 
+  var filteredData:DataPoint[] = []
+
+  if (filteredData0) {
+    filteredData = filteredData0['metrics']
+  }
+  
   return (
     <Card className="w-full max-w-4xl mx-auto p-6 shadow-lg bg-white dark:bg-gray-900">
       <CardHeader>
@@ -41,7 +57,7 @@ export default function SustainabilityWidget() {
           ))}
         </div>
 
-        {filteredData && filteredData['length'] > 0 ? (
+        {filteredData.length > 0 ? (
           <motion.div
             className="w-full h-96"
             initial={{ opacity: 0 }}

@@ -4,7 +4,7 @@ import * as React from "react"
 import { Truck, Factory, Package, Users, Recycle, AlertTriangle, Trash2 } from 'lucide-react';
 
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
-
+import Image from "next/image";
 import { useIsMobile } from "@/hooks/use-mobile"
 import {
   Card,
@@ -250,6 +250,7 @@ export function SupplyValueChainOverview() {
                 )}
             </div>
             ))}
+            <Image src="/distribution.png" alt="Suppliers" width="50" height="50" />
         </div>
 
         <div className="flex flex-wrap items-center gap-y-40">

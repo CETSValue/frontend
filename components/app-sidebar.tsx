@@ -39,7 +39,7 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
     },
     {
@@ -169,7 +169,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">My Company Ltd.</span>
+                <span className="text-base font-semibold">CETS Value</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

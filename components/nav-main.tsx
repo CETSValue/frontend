@@ -10,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { Link } from "lucide-react"
 
 export function NavMain({
   items,
@@ -28,7 +29,7 @@ export function NavMain({
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton tooltip={item.title}>
                 {item.icon && <item.icon />}
-                <span>{item.title}</span>
+                <a href={item.url}><span>{item.title}</span></a>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}

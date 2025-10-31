@@ -1,0 +1,44 @@
+[
+  {
+    "category": "Circular Economy",
+    "metrics": [
+      { "name": "Material Flow & Circularity", "value": 78 },
+      { "name": "Circular Design", "value": 85 },
+      { "name": "Resource Outflow", "value": 67 },
+      { "name": "Operational Waste", "value": 72 },
+      { "name": "Circular Business Model", "value": 80 }
+    ]
+  },
+  {
+    "category": "Sustainability",
+    "metrics": [
+      { "name": "Level of maturity", "value": 64 },
+      { "name": "Purpose Level", "value": 71 },
+      { "name": "Leadership Level", "value": 83 },
+      { "name": "Efficiency Level", "value": 90 },
+      { "name": "Obligation Level", "value": 76 },
+      { "name": "Complience Level", "value": 11 },
+      { "name": "Disregard Level", "value": 26 }
+    ]
+  },
+  {
+    "category": "Water",
+    "metrics": [
+      { "name": "Water Circulation", "value": 82 },
+      { "name": "Water Pollution Reduction", "value": 68 },
+      { "name": "Reuse Rate", "value": 74 },
+      { "name": "Effluent Treatment", "value": 70 },
+      { "name": "Circular Water Loop", "value": 79 }
+    ]
+  },
+  {
+    "category": "Energy",
+    "metrics": [
+      { "name": "Renewable Energy Share", "value": 88 },
+      { "name": "Energy Efficiency", "value": 81 },
+      { "name": "Emission Reduction", "value": 75 },
+      { "name": "Data Integration", "value": 69 },
+      { "name": "Operational Optimization", "value": 84 }
+    ]
+  }
+]

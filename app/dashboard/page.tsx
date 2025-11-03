@@ -2,10 +2,10 @@
 
 import { AppSidebar } from "@/components/app-sidebar"
 import { ChartAreaInteractive } from "@/components/chart-area-interactive"
-import { SupplyValueChainOverview } from "@/components/supply-value-chain-overview"
 import { DataTable } from "@/components/data-table"
 import { SectionCards } from "@/components/section-cards"
 import { SiteHeader } from "@/components/site-header"
+import MaterialFlowDiagram from "@/components/MaterialFlowDiagram";
 
 import {
   SidebarInset,
@@ -82,9 +82,10 @@ export default function Page() {
               </div>
             
               <div className="px-4 lg:px-6">
-                <SupplyValueChainOverview />
+                <MaterialFlowDiagram />
               </div>
-              <div className="px-4 lg:px-6">
+
+              <div className="px-4 lg:px-6 py-20">
                 <ChartAreaInteractive />
               </div>
               <DataTable data={data} />

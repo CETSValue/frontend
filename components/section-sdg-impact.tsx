@@ -10,7 +10,7 @@ import {
 export function SectionSGDImpact() {
   return (
     
-    <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-6">
+    <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-8">
       <ImpactCard className="@container/card">
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
          <Image src="/goal3.svg" alt="Good Health and Well-Being" width="500" height="300" />
@@ -40,6 +40,16 @@ export function SectionSGDImpact() {
       <ImpactCard className="@container/card">
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
          <Image src="/goal13.svg" alt="Good Health and Well-Being" width="500" height="300" />
+        </CardFooter>
+      </ImpactCard>
+      <ImpactCard className="@container/card">
+        <CardFooter className="flex-col items-start gap-1.5 text-sm">
+         <Image src="/goal7.svg" alt="Good Health and Well-Being" width="500" height="300" />
+        </CardFooter>
+      </ImpactCard>
+      <ImpactCard className="@container/card">
+        <CardFooter className="flex-col items-start gap-1.5 text-sm">
+         <Image src="/goal10.svg" alt="Good Health and Well-Being" width="500" height="300" />
         </CardFooter>
       </ImpactCard>
     </div>

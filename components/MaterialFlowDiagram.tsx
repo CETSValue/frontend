@@ -505,9 +505,6 @@ export default function MaterialFlowDiagram() {
   return (
     <div style={{ width: "100%", height: "90vh" }}>
       <div style={{ marginBottom: 8 }}>
-        <h2 style={{ fontSize: 24, fontWeight: 700, color: "#5b21b6" }}>
-          Value / Supply Chain on the Dashboards
-        </h2>
         <h3 style={{ fontSize: 18, color: "#444" }}>Material Flow</h3>
         <h4 style={{ fontSize: 18, fontWeight: 700, color: "#2C9B48" }}>
           Last updated 03 Nov 2025 13:21

@@ -505,10 +505,10 @@ export default function MaterialFlowDiagram() {
   return (
     <div style={{ width: "100%", height: "90vh" }}>
       <div style={{ marginBottom: 8 }}>
-        <h3 style={{ fontSize: 18, color: "#444" }}>Material Flow</h3>
-        <h4 style={{ fontSize: 18, fontWeight: 700, color: "#2C9B48" }}>
+        <h4 style={{ fontSize: 14, fontWeight: 700, color: "#666" }}>Material Flow</h4>
+        <h5 style={{ fontSize: 12, fontWeight: 700, color: "#2C9B48" }}>
           Last updated 03 Nov 2025 13:21
-        </h4>
+        </h5>
       </div>
 
       <ReactFlow

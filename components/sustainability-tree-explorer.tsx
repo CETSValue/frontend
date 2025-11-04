@@ -9,16 +9,29 @@ interface ParsedNode {
   value: number;
   children?: ParsedNode[];
 }
+
+interface TreeNodeProps extends ParsedNode {
+  level?: number; // added to track depth
+}
+
 // Recursive node component
-const TreeNode: FC<ParsedNode> = ({ name, value, children }) => {
-  const [open, setOpen] = useState(false);
+const TreeNode: FC<TreeNodeProps> = ({ name, value, children, level=0 }) => {
+  const [open, setOpen] = useState(level === 0);
   const hasChildren = children && children.length > 0;
+
+  useEffect(() => {
+    if (level === 0) setOpen(true);
+  }, [level]);
+
+  const toggle = () => {
+    if (hasChildren) setOpen((prev) => !prev);
+  };
 
   return (
     <div className="ml-4 border-l border-gray-200 pl-3 my-1">
       <div
         className="flex items-center gap-2 cursor-pointer hover:text-blue-600"
-        onClick={() => hasChildren && setOpen(!open)}
+        onClick={toggle}
       >
         {hasChildren ? (
           open ? (
@@ -49,6 +62,8 @@ const TreeNode: FC<ParsedNode> = ({ name, value, children }) => {
                 name={child.name}
                 value={child.value}
                 children={child.children}
+                level={level + 1}
+
               />
             ))}
           </motion.div>

@@ -25,8 +25,8 @@ interface ParsedNode {
 
 const ResilienceRadarExplorer = () => {
   const section = "Resilience Score";
-  const [currentLevel, setCurrentLevel] = useState(section);
-  const [path, setPath] = useState([]);
+  const [currentLevel, setCurrentLevel] = useState<ParsedNode>();
+  const [path, setPath] = useState<ParsedNode[]>([]);
 
   // Parse recursive JSON structure into a simpler hierarchy
   const parseNode = (node: ParsedNode): ParsedNode[] => {
@@ -43,12 +43,11 @@ const ResilienceRadarExplorer = () => {
   };
 
   useEffect(() => {
-    console.log(Data);
     const root = Data;
     if (!root) return;
 
     const parsed = {
-      label: section,
+      name: section,
       value: root.value,
       children: parseNode(root),
     };
@@ -66,10 +65,12 @@ const ResilienceRadarExplorer = () => {
     })) || [];
 
   const handleCategoryClick = (categoryLabel: string) => {
-    const next = currentLevel.children.find((c:ParsedNode) => c.name === categoryLabel);
-    if (next && next.children.length > 0) {
-      setCurrentLevel(next);
-      setPath((prev) => [...prev, next]);
+    if (currentLevel && currentLevel.children) {
+      const next = currentLevel.children.find((c:ParsedNode) => c.name === categoryLabel);
+      if (next && next.children && next.children.length > 0) {
+        setCurrentLevel(next);
+        setPath((prev) => [...prev, next]);
+      }
     }
   };
 
@@ -94,13 +95,13 @@ const ResilienceRadarExplorer = () => {
           </button>
         )}
         <h2 className="text-2xl font-semibold">
-          {currentLevel.label}
+          {currentLevel.name}
         </h2>
       </div>
 
       <AnimatePresence mode="wait">
         <motion.div
-          key={currentLevel.label}
+          key={currentLevel.name}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
@@ -121,7 +122,7 @@ const ResilienceRadarExplorer = () => {
               <PolarAngleAxis dataKey="category" />
               <PolarRadiusAxis angle={30} domain={[0, 100]} />
               <Radar
-                name={currentLevel.label}
+                name={currentLevel.name}
                 dataKey="value"
                 stroke="#8884d8"
                 fill="#8884d8"

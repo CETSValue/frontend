@@ -2,13 +2,6 @@ import React, { useState, useEffect, FC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import Data from "../public/data/resilience.json"; // adjust path as needed
-import { TreemapNode } from "recharts/types/util/types";
-
-interface TreeNode {
-  label: string;
-  value: number;
-  childrenNodes?: TreeNode[];
-}
 
 interface ParsedNode {
   name: string;

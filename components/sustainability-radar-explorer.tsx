@@ -12,30 +12,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Data from "../public/data/sustainability.json"; // adjust path if needed
 
-interface NodeItem {
-  value: string;
-  children?: Record<string, NodeItem[]>; // Each child category is keyed by a string (label)
-}
-
-interface Node {
-  label: string;
+interface ParsedNode {
+  name: string;
   value: number;
-  children: Node[];
+  children?: ParsedNode[];
 }
 
 const SustainabilityRadarExplorer = () => {
-  const [currentLevel, setCurrentLevel] = useState(null);
-  const [path, setPath] = useState([]);
+  const [currentLevel, setCurrentLevel] = useState<ParsedNode>();
+  const [path, setPath] = useState<ParsedNode[]>([]);
 
   // Parse recursive JSON structure into a simpler hierarchy
-  const parseNode = (node: { children?: Record<string, NodeItem[]> }): Node[] => {
+  const parseNode = (node: ParsedNode): ParsedNode[] => {
     if (!node.children) return [];
-
-    return node.children.map((category) => {
-      const [label, arr] = Object.entries(category)[0];
-      const item = arr[0];
+    
+    return Object.entries(node.children).map(([i, data]) => {
+      const item = data;
       return {
-        label: label.replace(/&amp;/g, "&"),
+        name: item.name.replace(/&amp;/g, "&"),
         value: item.value,
         children: item.children ? parseNode(item) : [],
       };
@@ -43,11 +37,10 @@ const SustainabilityRadarExplorer = () => {
   };
 
   useEffect(() => {
-    const section = "Circularity and Sustainability Score"
-    const root = Data[section]?.[0];
+    const root = Data;
     if (!root) return;
     const parsed = {
-      label: section,
+      name: root.name,
       value: root.value,
       children: parseNode(root),
     };
@@ -60,15 +53,17 @@ const SustainabilityRadarExplorer = () => {
   // Radar data for this level
   const chartData =
     currentLevel.children?.map((c) => ({
-      category: c.label,
+      category: c.name,
       value: c.value,
     })) || [];
 
-  const handleCategoryClick = (categoryLabel) => {
-    const next = currentLevel.children.find((c) => c.label === categoryLabel);
-    if (next && next.children.length > 0) {
-      setCurrentLevel(next);
-      setPath((prev) => [...prev, next]);
+  const handleCategoryClick = (categoryLabel: string) => {
+    if (currentLevel && currentLevel.children) {
+      const next = currentLevel.children.find((c:ParsedNode) => c.name === categoryLabel);
+      if (next && next.children && next.children.length > 0) {
+        setCurrentLevel(next);
+        setPath((prev) => [...prev, next]);
+      }
     }
   };
 
@@ -93,13 +88,13 @@ const SustainabilityRadarExplorer = () => {
           </button>
         )}
         <h2 className="text-2xl font-semibold">
-          {currentLevel.label}
+          {currentLevel.name}
         </h2>
       </div>
 
       <AnimatePresence mode="wait">
         <motion.div
-          key={currentLevel.label}
+          key={currentLevel.name}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
@@ -120,7 +115,7 @@ const SustainabilityRadarExplorer = () => {
               <PolarAngleAxis dataKey="category" />
               <PolarRadiusAxis angle={30} domain={[0, 100]} />
               <Radar
-                name={currentLevel.label}
+                name={currentLevel.name}
                 dataKey="value"
                 stroke="#8884d8"
                 fill="#8884d8"

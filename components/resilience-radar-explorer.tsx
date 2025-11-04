@@ -12,11 +12,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Data from "../public/data/resilience.json"; // adjust path if needed
 
-interface NodeItem {
-  value: number;
-  children?: Record<string, NodeItem[]>; // Each child category is keyed by a string (label)
-}
-
 interface ParsedNode {
   name: string;
   value: number;
@@ -24,7 +19,6 @@ interface ParsedNode {
 }
 
 const ResilienceRadarExplorer = () => {
-  const section = "Resilience Score";
   const [currentLevel, setCurrentLevel] = useState<ParsedNode>();
   const [path, setPath] = useState<ParsedNode[]>([]);
 

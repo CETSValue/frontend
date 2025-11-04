@@ -1,0 +1,99 @@
+Circularity and Sustainability Score:
+  - value: 75
+    children:
+    - Circular economy score:
+      - value: 82
+        children:
+          - Material flow and circularity:
+            - value: 11
+              children:
+                - Resource inflow:
+                  - value: 22
+                    children:
+                      - Circular inflow:
+                        - value : 77
+                          children:
+                            - Share of circular inflow:
+                              - value: 11
+                      - Circular design:
+                        - value : 22
+                          children:
+                            - Level of circularity to close the loop/ narrow the loop / slow the loop:
+                              - value: 77
+                - Resource outflow:
+                  - value: 56
+                    children:
+                      - Operational waste:
+                        - value: 34
+                          children:
+                            - Reused in own operations:
+                              - value: 83
+                            - Recycled outside own operations:
+                              - value: 45
+                            - Landfiled:
+                              - value: 64
+                      - Products and materials:
+                        - value: 32
+                          children:
+                            - Post use collection:
+                              - value: 35
+                            - Product life extension and utilisation:
+                              - value: 29
+          - Water:
+            - value: 46
+              children:
+                - Water circulation own operations:
+                  - value : 23
+                - Water pollution:
+                  - value: 89
+          - Energy use:
+            - value : 12
+              children:
+                - Logistics:
+                  - value: 35
+                - Own operations:
+                  - value: 87
+          - GHG emissions:
+            - value: 99
+              children:
+                - Scope 1:
+                  - value: 11
+                - Scope 2:
+                  - value: 22
+                - Scope 3:
+                  - value: 33
+          - Circular Business Model performance:
+            - value: 54
+              children:
+                - Rate of CE business model adoption within BU/ product category:
+                  - value: 45
+                - Rate of integration of CE in processes:
+                  - value: 67
+    - Sustainability score:
+      - value: 56
+        children:
+          - Level of maturity through available data:
+            - value: 56
+              children:
+              - Purpose level:
+                - value: 45
+              - Leadership level:
+                - value: 87
+              - Efficiency level:
+                - value: 23
+              - Obligation level:
+                - value: 45
+              - Compliance level:
+                - value: 78
+              - Disregard level:
+                - value: 97
+    - CE level of the ecosystem:
+      - value: 23
+        children:
+          - Suppliers' CE level:
+            - value: 23
+    - Data & digitization:
+      - value: 11
+        children:
+          - Lavel of availability, interconnectedness and standardisation of data:
+            - value: 11

@@ -1,0 +1,98 @@
+Resilience Score:
+  - value: 69
+    children:
+    - Global Supply &amp; Value Stakeholder Analysis:
+      - value: 11
+        children:
+        - Supply &amp; Value Chain Reliability:
+          - value: 10
+        - Geopolitical Exposure:
+          - value: 20
+        - Cross-Border Compliance Risk:
+          - value: 30
+        - Logistics Resilience:
+          - value: 40
+        - Supplier Diversification:
+          - value: 50
+        - Customer Dependency:
+          - value: 60
+        - Material Sourcing Reliability:
+          - value: 70
+        - Key Materials &amp; Price Fluctuation:
+          - value: 80
+    - Local Political &amp; Regulatory Stability:
+      - value: 70
+        children:
+        - CE/ESG National Alignment:
+          - value: 80
+        - Regulation Enforcement:
+          - value: 80
+        - Political Stability:
+          - value: 80
+        - Industry Support Initiatives:
+          - value: 80
+        - Regulatory Compliance Readiness:
+          - value: 80
+        - Economic Development:
+          - value: 80
+    - Business Model Robustness:
+      - value: 30
+        children:
+        - Regulatory Compliance:
+          - value: 30
+        - Market Trends Fit:
+          - value: 80
+        - Baseline Profitability:
+          - value: 50
+        - Stress-Tested Profit Projection:
+          - value: 80
+        - Supply &amp; Value Chain Reliability:
+          - value: 80
+        - Customer Dependence:
+          - value: 80
+        - Alternative Scenario Mapping:
+          - value: 80
+    - Technological Adaptability:
+      - value: 44
+        children:
+        - Digital Data Traceability:
+          - value: 60
+        - Digital/Tech Robustness:
+          - value: 50
+        - Real-Time Response to Risk:
+          - value: 40
+        - Data Management &amp; KPIs Monitoring:
+          - value: 30
+        - Digital Tool Availability:
+          - value: 20
+        - System Integration:
+          - value: 80
+        - Automation Readiness:
+          - value: 80
+        - Innovation Capacity:
+          - value: 70
+        - Real-Time Decision-Support Tool:
+          - value: 80
+    - Employee Readiness &amp; Empowerment:
+      - value: 77
+        children:
+        - Change Management Culture:
+          - value: 30
+        - Upskilling Readiness:
+          - value: 20
+        - Learning Capacity &amp; Motivation:
+          - value: 10
+        - Empowerment Level:
+          - value: 20
+        - Internal Communication &amp; Alignment:
+          - value: 30
+        - CE &amp; Sustainability Literacy:
+          - value: 40
+        - Personal Resilience &amp; Well-being:
+          - value: 50
+        - Key Talent Retention:
+          - value: 60
+        - Employee Support &amp; Promotion:
+          - value: 70
+        - Internal Partnership for the Goal (SDG 17):
+          - value: 80

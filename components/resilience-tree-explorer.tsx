@@ -1,12 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import Data from "../public/data/resilience.json"; // adjust path as needed
+import { TreemapNode } from "recharts/types/util/types";
+
+interface TreeNode {
+  label: string;
+  value: number;
+  childrenNodes?: TreeNode[];
+}
+
+interface ParsedNode {
+  name: string;
+  value: number;
+  children?: ParsedNode[];
+}
 
 // Recursive node component
-const TreeNode = ({ label, value, childrenNodes }) => {
+const TreeNode: FC<ParsedNode> = ({ name, value, children }) => {
   const [open, setOpen] = useState(false);
-  const hasChildren = childrenNodes && childrenNodes.length > 0;
+  const hasChildren = children && children.length > 0;
 
   return (
     <div className="ml-4 border-l border-gray-200 pl-3 my-1">
@@ -23,7 +36,7 @@ const TreeNode = ({ label, value, childrenNodes }) => {
         ) : (
           <div className="w-4" />
         )}
-        <span className="font-medium">{label.replace(/&amp;/g, "&")}</span>
+        <span className="font-medium">{name.replace(/&amp;/g, "&")}</span>
         {value !== undefined && (
           <span className="text-sm text-gray-500 ml-2">({value})</span>
         )}
@@ -37,12 +50,12 @@ const TreeNode = ({ label, value, childrenNodes }) => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
           >
-            {childrenNodes.map((child, index) => (
+            {children.map((child: ParsedNode, index: number) => (
               <TreeNode
                 key={index}
-                label={child.name}
+                name={child.name}
                 value={child.value}
-                childrenNodes={child.children}
+                children={child.children}
               />
             ))}
           </motion.div>
@@ -52,11 +65,7 @@ const TreeNode = ({ label, value, childrenNodes }) => {
   );
 };
 
-interface ParsedNode {
-  name: string;
-  value: number;
-  children?: ParsedNode[];
-}
+
 
 const ResilienceTreeExplorer = () => {
   const [tree, setTree] = useState<ParsedNode>();
@@ -94,9 +103,9 @@ const ResilienceTreeExplorer = () => {
         🌿 Resilience Tree Explorer
       </h2>
       <TreeNode
-        label={tree.name}
+        name={tree.name}
         value={tree.value}
-        childrenNodes={tree.children}
+        children={tree.children}
       />
     </div>
   );

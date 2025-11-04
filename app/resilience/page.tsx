@@ -75,6 +75,9 @@ export default function Page() {
               <div className="px-4 lg:px-6">
                 <ResilienceRadarExplorer />
               </div>
+              <div className="px-4 lg:px-6">
+                <ResilienceTreeExplorer />
+              </div>
             </div>
           </div>
         </div>

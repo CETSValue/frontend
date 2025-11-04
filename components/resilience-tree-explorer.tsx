@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronDown } from "lucide-react";
-import resilienceData from "../public/data/resilience.json"; // adjust path as needed
+import Data from "../public/data/resilience.json"; // adjust path as needed
 
 // Recursive node component
 const TreeNode = ({ label, value, childrenNodes }) => {
@@ -40,7 +40,7 @@ const TreeNode = ({ label, value, childrenNodes }) => {
             {childrenNodes.map((child, index) => (
               <TreeNode
                 key={index}
-                label={child.label}
+                label={child.name}
                 value={child.value}
                 childrenNodes={child.children}
               />
@@ -52,18 +52,23 @@ const TreeNode = ({ label, value, childrenNodes }) => {
   );
 };
 
+interface ParsedNode {
+  name: string;
+  value: number;
+  children?: ParsedNode[];
+}
+
 const ResilienceTreeExplorer = () => {
-  const [tree, setTree] = useState(null);
+  const [tree, setTree] = useState<ParsedNode>();
 
   useEffect(() => {
-    const parseNode = (node) => {
+    const parseNode = (node: ParsedNode): ParsedNode[] => {
       if (!node.children) return [];
 
-      return node.children.map((category) => {
-        const [label, arr] = Object.entries(category)[0];
-        const item = arr[0];
+      return Object.entries(node.children).map(([i, data]) => {
+        const item = data;
         return {
-          label,
+          name: item.name,
           value: item.value,
           children: item.children
             ? parseNode(item)
@@ -72,9 +77,9 @@ const ResilienceTreeExplorer = () => {
       });
     };
 
-    const root = resilienceData["Resilience Score"]?.[0];
+    const root = Data;
     const treeStructure = {
-      label: "Resilience Score",
+      name: root.name,
       value: root.value,
       children: parseNode(root),
     };
@@ -89,7 +94,7 @@ const ResilienceTreeExplorer = () => {
         🌿 Resilience Tree Explorer
       </h2>
       <TreeNode
-        label={tree.label}
+        label={tree.name}
         value={tree.value}
         childrenNodes={tree.children}
       />

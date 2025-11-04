@@ -41,7 +41,7 @@ const ResilienceRadarExplorer = () => {
     if (!root) return;
 
     const parsed = {
-      name: section,
+      name: root.name,
       value: root.value,
       children: parseNode(root),
     };

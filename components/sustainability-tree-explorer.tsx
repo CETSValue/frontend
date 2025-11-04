@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import Data from "../public/data/sustainability.json"; // adjust path as needed
 //import Data from "../public/data/resilience.json"; // adjust path as needed
 
+interface ParsedNode {
+  name: string;
+  value: number;
+  children?: ParsedNode[];
+}
 // Recursive node component
-const TreeNode = ({ label, value, childrenNodes }) => {
+const TreeNode: FC<ParsedNode> = ({ name, value, children }) => {
   const [open, setOpen] = useState(false);
-  const hasChildren = childrenNodes && childrenNodes.length > 0;
+  const hasChildren = children && children.length > 0;
 
   return (
     <div className="ml-4 border-l border-gray-200 pl-3 my-1">
@@ -24,7 +29,7 @@ const TreeNode = ({ label, value, childrenNodes }) => {
         ) : (
           <div className="w-4" />
         )}
-        <span className="font-medium">{label.replace(/&amp;/g, "&")}</span>
+        <span className="font-medium">{name.replace(/&amp;/g, "&")}</span>
         {value !== undefined && (
           <span className="text-sm text-gray-500 ml-2">({value})</span>
         )}
@@ -38,12 +43,12 @@ const TreeNode = ({ label, value, childrenNodes }) => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
           >
-            {childrenNodes.map((child, index) => (
+            {children.map((child: ParsedNode, index: number) => (
               <TreeNode
                 key={index}
-                label={child.label}
+                name={child.name}
                 value={child.value}
-                childrenNodes={child.children}
+                children={child.children}
               />
             ))}
           </motion.div>
@@ -54,17 +59,16 @@ const TreeNode = ({ label, value, childrenNodes }) => {
 };
 
 const SustainabilityTreeExplorer = () => {
-  const [tree, setTree] = useState(null);
+  const [tree, setTree] = useState<ParsedNode>();
 
   useEffect(() => {
-    const parseNode = (node) => {
+    const parseNode = (node: ParsedNode): ParsedNode[] => {
       if (!node.children) return [];
 
-      return node.children.map((category) => {
-        const [label, arr] = Object.entries(category)[0];
-        const item = arr[0];
+      return Object.entries(node.children).map(([i, data]) => {
+        const item = data;
         return {
-          label,
+          name: item.name,
           value: item.value,
           children: item.children
             ? parseNode(item)
@@ -73,14 +77,10 @@ const SustainabilityTreeExplorer = () => {
       });
     };
 
-    const section = "Circularity and Sustainability Score";
-    //const section = "Resilience Score";
-    const root = Data[section]?.[0];
-    console.log("root")
-    console.log(root);
+    const root = Data;
 
     const treeStructure = {
-      label: section,
+      name: root.name,
       value: root.value,
       children: parseNode(root),
     };
@@ -95,9 +95,9 @@ const SustainabilityTreeExplorer = () => {
         🌿 Circularity and Sustainability Tree Explorer
       </h2>
       <TreeNode
-        label={tree.label}
+        name={tree.name}
         value={tree.value}
-        childrenNodes={tree.children}
+        children={tree.children}
       />
     </div>
   );

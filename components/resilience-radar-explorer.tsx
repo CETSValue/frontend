@@ -12,17 +12,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import resilienceData from "../public/data/resilience.json"; // adjust path if needed
 
+interface NodeItem {
+  value: string;
+  children?: Record<string, NodeItem[]>; // Each child category is keyed by a string (label)
+}
+
+interface ParsedNode {
+  label: string;
+  value: string;
+  children: ParsedNode[];
+}
+
 const ResilienceRadarExplorer = () => {
   const [currentLevel, setCurrentLevel] = useState(null);
   const [path, setPath] = useState([]);
 
   // Parse recursive JSON structure into a simpler hierarchy
-  const parseNode = (node) => {
+  const parseNode = (node: { children?: Record<string, NodeItem[]> }): ParsedNode[] => {
     if (!node.children) return [];
-
-    return node.children.map((category) => {
-      const [label, arr] = Object.entries(category)[0];
-      const item = arr[0];
+  
+    return Object.entries(node.children).map(([i, data]) => {
+      const [label, arr] = Object.entries(data)[0];
+      const item = Object.entries(arr)[0][1];
       return {
         label: label.replace(/&amp;/g, "&"),
         value: item.value,

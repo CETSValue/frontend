@@ -1,0 +1,76 @@
+{
+  "name": "Resilience Score",
+  "value": 69,
+  "children": [
+    {
+      "name": "Global Supply & Value Stakeholder Analysis",
+      "value": 11,
+      "children": [
+        { "name": "Supply & Value Chain Reliability", "value": 10 },
+        { "name": "Geopolitical Exposure", "value": 20 },
+        { "name": "Cross-Border Compliance Risk", "value": 30 },
+        { "name": "Logistics Resilience", "value": 40 },
+        { "name": "Supplier Diversification", "value": 50 },
+        { "name": "Customer Dependency", "value": 60 },
+        { "name": "Material Sourcing Reliability", "value": 70 },
+        { "name": "Key Materials & Price Fluctuation", "value": 80 }
+      ]
+    },
+    {
+      "name": "Local Political & Regulatory Stability",
+      "value": 70,
+      "children": [
+        { "name": "CE/ESG National Alignment", "value": 80 },
+        { "name": "Regulation Enforcement", "value": 80 },
+        { "name": "Political Stability", "value": 80 },
+        { "name": "Industry Support Initiatives", "value": 80 },
+        { "name": "Regulatory Compliance Readiness", "value": 80 },
+        { "name": "Economic Development", "value": 80 }
+      ]
+    },
+    {
+      "name": "Business Model Robustness",
+      "value": 30,
+      "children": [
+        { "name": "Regulatory Compliance", "value": 30 },
+        { "name": "Market Trends Fit", "value": 80 },
+        { "name": "Baseline Profitability", "value": 50 },
+        { "name": "Stress-Tested Profit Projection", "value": 80 },
+        { "name": "Supply & Value Chain Reliability", "value": 80 },
+        { "name": "Customer Dependence", "value": 80 },
+        { "name": "Alternative Scenario Mapping", "value": 80 }
+      ]
+    },
+    {
+      "name": "Technological Adaptability",
+      "value": 44,
+      "children": [
+        { "name": "Digital Data Traceability", "value": 60 },
+        { "name": "Digital/Tech Robustness", "value": 50 },
+        { "name": "Real-Time Response to Risk", "value": 40 },
+        { "name": "Data Management & KPIs Monitoring", "value": 30 },
+        { "name": "Digital Tool Availability", "value": 20 },
+        { "name": "System Integration", "value": 80 },
+        { "name": "Automation Readiness", "value": 80 },
+        { "name": "Innovation Capacity", "value": 70 },
+        { "name": "Real-Time Decision-Support Tool", "value": 80 }
+      ]
+    },
+    {
+      "name": "Employee Readiness & Empowerment",
+      "value": 77,
+      "children": [
+        { "name": "Change Management Culture", "value": 30 },
+        { "name": "Upskilling Readiness", "value": 20 },
+        { "name": "Learning Capacity & Motivation", "value": 10 },
+        { "name": "Empowerment Level", "value": 20 },
+        { "name": "Internal Communication & Alignment", "value": 30 },
+        { "name": "CE & Sustainability Literacy", "value": 40 },
+        { "name": "Personal Resilience & Well-being", "value": 50 },
+        { "name": "Key Talent Retention", "value": 60 },
+        { "name": "Employee Support & Promotion", "value": 70 },
+        { "name": "Internal Partnership for the Goal (SDG 17)", "value": 80 }
+      ]
+    }
+  ]
+}

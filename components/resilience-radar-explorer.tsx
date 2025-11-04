@@ -10,32 +10,32 @@ import {
 } from "recharts";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import resilienceData from "../public/data/resilience.json"; // adjust path if needed
+import Data from "../public/data/resilience.json"; // adjust path if needed
 
 interface NodeItem {
-  value: string;
+  value: number;
   children?: Record<string, NodeItem[]>; // Each child category is keyed by a string (label)
 }
 
 interface ParsedNode {
-  label: string;
-  value: string;
-  children: ParsedNode[];
+  name: string;
+  value: number;
+  children?: ParsedNode[];
 }
 
 const ResilienceRadarExplorer = () => {
-  const [currentLevel, setCurrentLevel] = useState(null);
+  const section = "Resilience Score";
+  const [currentLevel, setCurrentLevel] = useState(section);
   const [path, setPath] = useState([]);
 
   // Parse recursive JSON structure into a simpler hierarchy
-  const parseNode = (node: { children?: Record<string, NodeItem[]> }): ParsedNode[] => {
+  const parseNode = (node: ParsedNode): ParsedNode[] => {
     if (!node.children) return [];
-  
+    
     return Object.entries(node.children).map(([i, data]) => {
-      const [label, arr] = Object.entries(data)[0];
-      const item = Object.entries(arr)[0][1];
+      const item = data;
       return {
-        label: label.replace(/&amp;/g, "&"),
+        name: item.name.replace(/&amp;/g, "&"),
         value: item.value,
         children: item.children ? parseNode(item) : [],
       };
@@ -43,10 +43,12 @@ const ResilienceRadarExplorer = () => {
   };
 
   useEffect(() => {
-    const root = resilienceData["Resilience Score"]?.[0];
+    console.log(Data);
+    const root = Data;
     if (!root) return;
+
     const parsed = {
-      label: "Resilience Score",
+      label: section,
       value: root.value,
       children: parseNode(root),
     };
@@ -58,13 +60,13 @@ const ResilienceRadarExplorer = () => {
 
   // Radar data for this level
   const chartData =
-    currentLevel.children?.map((c) => ({
-      category: c.label,
+    currentLevel.children?.map((c:ParsedNode) => ({
+      category: c.name,
       value: c.value,
     })) || [];
 
-  const handleCategoryClick = (categoryLabel) => {
-    const next = currentLevel.children.find((c) => c.label === categoryLabel);
+  const handleCategoryClick = (categoryLabel: string) => {
+    const next = currentLevel.children.find((c:ParsedNode) => c.name === categoryLabel);
     if (next && next.children.length > 0) {
       setCurrentLevel(next);
       setPath((prev) => [...prev, next]);

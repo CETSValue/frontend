@@ -13,8 +13,8 @@ import {
 export function SectionCards() {
   return (
     <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-5">
-      <a href="/sustainability">
       <Card className="@container/card">
+      <a href="/sustainability">
         <CardHeader>
           <CardDescription>Circularity & Sustainability Score</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
@@ -35,8 +35,8 @@ export function SectionCards() {
             Reduced waste
           </div>
         </CardFooter>
-      </Card>
       </a>
+      </Card>
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>Profit Score</CardDescription>
@@ -57,9 +57,9 @@ export function SectionCards() {
           <div className="text-muted-foreground">Distribution requires attention</div>
         </CardFooter>
       </Card>
-      <a href="/resilience">
 
       <Card className="@container/card">
+      <a href="/resilience">
         <CardHeader>
           <CardDescription>Resilience Score</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
@@ -80,8 +80,8 @@ export function SectionCards() {
             Improved distribution in last 3 months
           </div>
         </CardFooter>
-      </Card>
       </a>
+      </Card>
       <Card className="@container/card">
         <CardHeader>
           <CardDescription>Break Even Point</CardDescription>

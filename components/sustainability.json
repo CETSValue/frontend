@@ -1,0 +1,163 @@
+{
+  "data": [
+    {
+      "name" : "Circular Economy Score",
+      "value" : 82,
+      "type" : "ok",
+      "children": [
+        {
+            "name": "Material flow and circularity",
+            "children":[
+                {
+                    "name": "Resource inflow",
+                    "children":[
+                        {
+                            "name":"Circular inflow",
+                            "children":[
+                                {
+                                    "name": "Share of circular inflow",
+                                    "value": "11%"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Circular design",
+                            "children":[
+                                {
+                                    "name": "Level of circularity to close the loop/ narrow the loop / slow the loop"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Resource outflow",
+                    "children":[
+                        {
+                            "name": "Operational waste",
+                            "children":[
+                                {
+                                    "name": "Reused in own operations"
+                                },
+                                {
+                                    "name": "Recycled outside own operations"
+                                },
+                                {
+                                    "name": "Landfiled"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Products and materials",
+                            "children": [
+                                {
+                                    "name": "Post use collection"
+                                },
+                                {
+                                    "name": "Product life extension and utilisation"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Water",
+            "children": [
+                {
+                    "name": "Water circulation own operations"
+                },
+                {
+                    "name": "Water pollution"
+                }
+            ]
+        },
+        {
+            "name": "Energy use",
+            "children": [
+                {
+                    "name": "Logistics"
+                },
+                {
+                    "name": "Own operations"
+                }
+            ]
+        },
+        {
+            "name": "GHG emissions",
+            "children": [
+                {
+                    "name": "Scope 1"
+                },
+                {
+                    "name": "Scope 2"
+                },
+                {
+                    "name": "Scope 3"
+                }
+            ]
+        },
+        {
+            "name": "Circular Business Model performance",
+            "children":[
+                {
+                    "name" : "Rate of CE business model adoption within BU/ product category"
+                },
+                {
+                    "name": "Rate of integration of CE in processes"
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "name" : "Sustainability Score",
+      "value" : 76,
+      "type" : "fail",
+      "children": [
+        {
+            "name": "Level of maturity through available data"
+        },
+        {
+            "name": "Purpose level",
+            "type": "fail"
+        },
+        {
+            "name": "Leadership level"
+        },
+        {
+            "name": "Efficiency level",
+            "type": "fail"
+        },
+        {
+            "name": "Obligation level"
+        },
+        {
+            "name": "Compliance level"
+        },
+        {
+            "name": "Disregard level"
+        }
+      ]
+    },
+    {
+      "name" : "CE level of the ecosystem",
+      "value" : 23,
+      "children" : [
+        {
+          "name": "Suppliers' CE level"
+        }
+      ]
+    },
+    {
+      "name" : "Data & digitization",
+      "value" : 11,
+      "children" : [
+        {
+          "name": "Lavel of availability, interconnectedness and standardistion of data"
+        }
+      ]
+    }
+  ]
+}

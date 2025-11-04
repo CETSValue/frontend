@@ -74,7 +74,7 @@ export default function Page() {
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               <SectionCards />
               <div className="px-4 lg:px-10" style={{fontWeight:'bold', color: '#6634A2'}}>
-              SGD IMPACT
+              UN SUSTAINABLE DEVELOPMENT GOALS IMPACT
               </div>
               <SectionSGDImpact />
               <div className="px-4 lg:px-10" style={{fontWeight:'bold', color: '#6634A2'}}>

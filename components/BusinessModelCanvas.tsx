@@ -11,7 +11,48 @@ import { HTML5Backend } from "react-dnd-html5-backend";
  * - JSON import/export
  */
 
-const DEFAULT_SECTIONS = [
+interface Item {
+  id: string;
+  text: string;
+}
+
+interface SectionItem extends Item {
+  title?: string;
+  items: Item[] 
+}
+
+interface SectionHeader {
+    id: string;
+    title: string;
+}
+
+interface EditableItem {
+    sectionId: string;
+    itemId: string;
+}
+
+interface CanvasColumnProps {
+  section: SectionItem;
+  addItem: (sectionId: string) => void;
+  updateItem: (sectionId: string, itemId: string, newValue: string) => void;
+  deleteItem: (sectionId: string, itemId: string) => void;
+  moveItem: (item: Item, fromId: string, toId: string) => void;
+  editing: EditableItem | null;
+  setEditing: (item: EditableItem | null) => void;
+  filterItems: (items: Item[]) => Item[];
+  large?: boolean;
+}
+
+interface DraggableItemProps {
+  item: Item;
+  sectionId: string;
+  updateItem: (sectionId: string, itemId: string, newValue: string) => void;
+  deleteItem: (sectionId: string, itemId: string) => void;
+  editing: EditableItem | null;
+  setEditing: (item: EditableItem | null) => void;
+}
+
+const DEFAULT_SECTIONS : SectionHeader[] = [
   { id: "key-partners", title: "Key Partners" },
   { id: "key-activities", title: "Key Activities" },
   { id: "key-resources", title: "Key Resources" },
@@ -29,8 +70,11 @@ function uid(prefix = "id") {
   return `${prefix}_${Math.random().toString(36).slice(2, 9)}`;
 }
 
+
+
+
 export default function BusinessModelCanvas() {
-  const [sections, setSections] = useState(() => {
+  const [sections, setSections] = useState<SectionItem[]>(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) return JSON.parse(raw);
@@ -38,7 +82,7 @@ export default function BusinessModelCanvas() {
     return DEFAULT_SECTIONS.map((s) => ({ ...s, items: [] }));
   });
 
-  const [editing, setEditing] = useState(null);
+  const [editing, setEditing] = useState<EditableItem|null>(null);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -47,7 +91,7 @@ export default function BusinessModelCanvas() {
     } catch {}
   }, [sections]);
 
-  const addItem = (sectionId) => {
+  const addItem = (sectionId: string) => {
     setSections((prev) =>
       prev.map((s) =>
         s.id === sectionId
@@ -57,7 +101,7 @@ export default function BusinessModelCanvas() {
     );
   };
 
-  const updateItem = (sectionId, itemId, text) => {
+  const updateItem = (sectionId:string, itemId:string, text:string) => {
     setSections((prev) =>
       prev.map((s) =>
         s.id === sectionId
@@ -67,7 +111,7 @@ export default function BusinessModelCanvas() {
     );
   };
 
-  const deleteItem = (sectionId, itemId) => {
+  const deleteItem = (sectionId:string, itemId:string) => {
     setSections((prev) =>
       prev.map((s) =>
         s.id === sectionId ? { ...s, items: s.items.filter((it) => it.id !== itemId) } : s
@@ -75,7 +119,7 @@ export default function BusinessModelCanvas() {
     );
   };
 
-  const moveItem = (item, fromId, toId) => {
+  const moveItem = (item:Item, fromId:string, toId:string) => {
     if (fromId === toId) return;
     setSections((prev) => {
       const src = prev.find((s) => s.id === fromId);
@@ -108,20 +152,41 @@ export default function BusinessModelCanvas() {
     URL.revokeObjectURL(url);
   };
 
-  const importJSON = (file) => {
+  const importJSON = (file: File) => {
     const reader = new FileReader();
+
     reader.onload = (e) => {
-      try {
-        const parsed = JSON.parse(e.target.result);
-        if (Array.isArray(parsed)) setSections(parsed);
-      } catch {
+        try {
+        const text = e.target?.result;
+        if (typeof text !== "string") throw new Error("Invalid file content");
+
+        const parsed = JSON.parse(text);
+
+        // Validate structure before setting state
+        if (Array.isArray(parsed)) {
+            // Optional: ensure each section has expected properties
+            const valid = parsed.every(
+            (s) => typeof s.id === "string" && typeof s.title === "string" && Array.isArray(s.items)
+            );
+
+            if (valid) {
+            setSections(parsed);
+            } else {
+            alert("Invalid JSON structure");
+            }
+        } else {
+            alert("JSON must be an array");
+        }
+        } catch {
         alert("Invalid JSON");
-      }
+        }
     };
+
     reader.readAsText(file);
   };
 
-  const filterItems = (items) => {
+
+  const filterItems = (items: Item[]) => {
     if (!query.trim()) return items;
     return items.filter((it) => it.text.toLowerCase().includes(query.toLowerCase()));
   };
@@ -187,10 +252,10 @@ export default function BusinessModelCanvas() {
   );
 }
 
-function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, editing, setEditing, filterItems, large }) {
+function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, editing, setEditing, filterItems, large = false } : CanvasColumnProps) {
   const [, drop] = useDrop({
     accept: "ITEM",
-    drop: (dragged) => moveItem(dragged.item, dragged.fromId, section.id),
+    drop: (dragged: { item: Item; fromId: string }) => moveItem(dragged.item, dragged.fromId, section.id),
   });
 
   const filtered = filterItems(section.items || []);
@@ -220,7 +285,7 @@ function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, edit
   );
 }
 
-function DraggableItem({ item, sectionId, updateItem, deleteItem, editing, setEditing }) {
+function DraggableItem({ item, sectionId, updateItem, deleteItem, editing, setEditing } : DraggableItemProps) {
   const [, drag] = useDrag({ type: "ITEM", item: { item, fromId: sectionId } });
   const [value, setValue] = useState(item.text);
   useEffect(() => setValue(item.text), [item.text]);
@@ -251,7 +316,7 @@ function DraggableItem({ item, sectionId, updateItem, deleteItem, editing, setEd
         <div className="flex justify-between items-center gap-2">
           <div className="text-sm break-words">{item.text}</div>
           <div className="flex gap-2">
-            <button onClick={() => setEditing({ sectionId, itemId: item.id })} className="px-2 py-1 text-xs border rounded-md">Edit</button>
+            <button onClick={() => setEditing({ sectionId: sectionId, itemId: item.id })} className="px-2 py-1 text-xs border rounded-md">Edit</button>
             <button onClick={() => deleteItem(sectionId, item.id)} className="px-2 py-1 text-xs border rounded-md">Del</button>
           </div>
         </div>

@@ -45,6 +45,7 @@ interface CanvasColumnProps {
   setEditing: (item: EditableItem | null) => void;
   filterItems: (items: Item[]) => Item[];
   large?: boolean;
+  tall?: boolean;
 }
 
 interface DraggableItemProps {
@@ -57,18 +58,29 @@ interface DraggableItemProps {
 }
 
 const DEFAULT_SECTIONS : SectionHeader[] = [
+  { id: "impact-materiality", title: "Impact Materiality (Environment)" },
+    
   { id: "key-partners", title: "Key Partners" },
-  { id: "key-activities", title: "Key Activities" },
   { id: "key-resources", title: "Key Resources" },
+  { id: "key-activities", title: "Key Activities" },
+
   { id: "value-propositions", title: "Value Propositions" },
-  { id: "customer-relationships", title: "Customer Relationships" },
-  { id: "channels", title: "Channels" },
+  
   { id: "customer-segments", title: "Customer Segments" },
+  { id: "channels", title: "Customer Channels" },
+  { id: "customer-relationships", title: "Customer Relationships" },
+  
+  { id: "logistics", title: "Logistics Along the Value Chain" },
+  { id: "postuse", title: "Post Use / Post Consumption (Value Circulation)" },
+  
+  
   { id: "cost-structure", title: "Cost Structure" },
   { id: "revenue-streams", title: "Revenue Streams" },
+  { id: "financial-materiality", title: "Financial Materiality" },
+  
 ];
 
-const STORAGE_KEY = "bmc_v2_rdn";
+const STORAGE_KEY = "bmc_v5_rdn";
 
 function uid(prefix = "id") {
   return `${prefix}_${Math.random().toString(36).slice(2, 9)}`;
@@ -253,11 +265,13 @@ export default function BusinessModelCanvas() {
     });
   };
 
-  const left = ["key-partners", "key-activities", "key-resources"];
-  const right = ["customer-relationships", "channels", "customer-segments"];
-  const bottom = ["cost-structure", "revenue-streams"];
+  const top = ["impact-materiality"];
+  const left = ["key-partners", "key-resources", "key-activities"];
+  const right = ["customer-segments", "channels", "customer-relationships"];
   const center = ["value-propositions"];
-
+  const farright = ["logistics", "postuse"];
+  const bottom = ["cost-structure", "revenue-streams", "financial-materiality"];
+  
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="p-4 max-w-[1400px] mx-auto">
@@ -284,7 +298,13 @@ export default function BusinessModelCanvas() {
           </div>
         </div>
 
-        <div className="grid grid-cols-[300px_1fr_300px] gap-4">
+        <div className="mt-4 grid grid-cols-1 gap-4 py-4">
+          {sections.filter((s) => top.includes(s.id)).map((s) => (
+            <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-[200px_1fr_200px_200px] gap-4">
           <div className="space-y-4">
             {sections.filter((s) => left.includes(s.id)).map((s) => (
               <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} />
@@ -302,9 +322,15 @@ export default function BusinessModelCanvas() {
               <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} />
             ))}
           </div>
+          <div className="space-y-4">
+            {sections.filter((s) => farright.includes(s.id)).map((s) => (
+              <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} tall/>
+            ))}
+          </div>
+        
         </div>
 
-        <div className="mt-4 grid grid-cols-2 gap-4">
+        <div className="mt-4 grid grid-cols-1 gap-4">
           {sections.filter((s) => bottom.includes(s.id)).map((s) => (
             <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} />
           ))}
@@ -314,7 +340,7 @@ export default function BusinessModelCanvas() {
   );
 }
 
-function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, editing, setEditing, filterItems, large = false } : CanvasColumnProps) {
+function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, editing, setEditing, filterItems, large = false, tall = false } : CanvasColumnProps) {
   const [, drop] = useImprovedDrop({
     accept: "ITEM",
     drop: (dragged: { item: Item; fromId: string }) => moveItem(dragged.item, dragged.fromId, section.id),
@@ -323,7 +349,7 @@ function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, edit
   const filtered = filterItems(section.items || []);
 
   return (
-    <div ref={drop} className={`bg-white rounded-2xl shadow p-3 ${large ? "min-h-[512px]" : "min-h-[160px]"}`}>
+    <div ref={drop} className={`bg-white rounded-2xl shadow p-3 ${large ? "min-h-[512px]" : "min-h-[160px]"} ${tall ? "min-h-[248px]" : "min-h-[160px]"}`}>
       <div className="flex justify-between mb-2">
         <h2 className="font-semibold">{section.title}</h2>
         <button onClick={() => addItem(section.id)} className="text-xs px-2 py-1 border rounded-md">+ Add</button>

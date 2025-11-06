@@ -125,6 +125,11 @@ const data = {
   ],
   documents: [
     {
+      name: "Business Model Canvas",
+      url: "/bmcanvas",
+      icon: IconReport,
+    },
+    {
       name: "Material Flow Analysis",
       url: "#",
       icon: IconDatabase,
@@ -134,11 +139,7 @@ const data = {
       url: "#",
       icon: IconReport,
     },
-    {
-      name: "Business Model Canvas",
-      url: "/bmcanvas",
-      icon: IconReport,
-    },
+
   ],
 }
 

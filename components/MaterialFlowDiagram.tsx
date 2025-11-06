@@ -507,7 +507,7 @@ export default function MaterialFlowDiagram() {
       <div style={{ marginBottom: 8 }}>
         <h4 style={{ fontSize: 14, fontWeight: 700, color: "#666" }}>Material Flow</h4>
         <h5 style={{ fontSize: 12, fontWeight: 700, color: "#2C9B48" }}>
-          Last updated 06 Nov 2025 11:19
+          Last updated 06 Nov 2025 12:39
         </h5>
       </div>
 

@@ -13,7 +13,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 interface Item {
   id: string;
-  text: string;
+  text?: string;
 }
 
 interface SectionItem extends Item {
@@ -188,7 +188,11 @@ export default function BusinessModelCanvas() {
 
   const filterItems = (items: Item[]) => {
     if (!query.trim()) return items;
-    return items.filter((it) => it.text.toLowerCase().includes(query.toLowerCase()));
+    return items.filter((it) => { 
+        if (it) { 
+            it.text?.toLowerCase().includes(query.toLowerCase())
+        }
+    });
   };
 
   const left = ["key-partners", "key-activities", "key-resources"];

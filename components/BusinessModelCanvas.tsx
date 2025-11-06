@@ -86,6 +86,50 @@ export function useImprovedDrag<DragObject = unknown, DropResult = unknown, Coll
  return [state, improvedRef, preview];
 }
 
+/**
+* Wrapper for react-dnd's `useDrop()` that contains several improvements / bugfixes.
+* Specifically cater for the scenario where `isDragging` is a collected property, ensuring the drag interaction gets to start before `isDragging` is updated.
+*/
+export function useImprovedDrop<DragObject = unknown, DropResult = unknown, CollectedProps extends object = object>(specArg: FactoryOrInstance<DropTargetHookSpec<DragObject, DropResult, CollectedProps>>, dependencies?: unknown[]): [CollectedProps, Ref<any>] {
+ // Call original `useDrop()` implementation
+ const [state, DropTargetRef] = useDrop<DragObject, DropResult, CollectedProps>(specArg, dependencies);
+
+ // Collection of properties that will override `state` in the return value
+ const overrideProperties: Record<string, any> = {};
+
+ // If `state` has collected a property called `isDragging`, override it with a state hook
+ if ('isDragging' in state) {
+   // eslint-disable-next-line react-hooks/rules-of-hooks
+   const [isDragging, setIsDragging] = useState<boolean>(false);
+
+   // Mirror the value of `state.isDragging` into `isDragging` but delayed by 1 frame
+   // This is to allow the drag to start BEFORE conditionally updating the DOM based on `isDragging`
+   // which might cause the drag to be invalidated.
+   // See: https://github.com/react-dnd/react-dnd/issues/3649
+   if (state.isDragging !== isDragging) {
+     setTimeout(() => setIsDragging(state.isDragging as boolean), 0);
+   }
+
+   // "export" property `isDragging` through `overrideProperties` object
+   overrideProperties.isDragging = isDragging;
+ }
+
+ // Construct a ref function that actually conforms to type definition for `ref={}` property
+ // For some reason the default exported one does not compile.
+ const improvedRef: Ref<any> = (e) => {
+   DropTargetRef(e);
+ }
+
+ return [
+   // Override properties from `state` with `overrideProperties`
+   {
+     ...state,
+     ...overrideProperties
+   } satisfies CollectedProps,
+   // Use new ref function
+   improvedRef
+ ];
+}
 
 export default function BusinessModelCanvas() {
   const [sections, setSections] = useState<SectionItem[]>(() => {
@@ -240,7 +284,7 @@ export default function BusinessModelCanvas() {
           </div>
         </div>
 
-        <div className="grid grid-cols-[220px_1fr_220px] gap-4">
+        <div className="grid grid-cols-[300px_1fr_300px] gap-4">
           <div className="space-y-4">
             {sections.filter((s) => left.includes(s.id)).map((s) => (
               <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} />
@@ -271,7 +315,7 @@ export default function BusinessModelCanvas() {
 }
 
 function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, editing, setEditing, filterItems, large = false } : CanvasColumnProps) {
-  const [, drop] = useDrop({
+  const [, drop] = useImprovedDrop({
     accept: "ITEM",
     drop: (dragged: { item: Item; fromId: string }) => moveItem(dragged.item, dragged.fromId, section.id),
   });

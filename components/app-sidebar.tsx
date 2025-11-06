@@ -134,6 +134,11 @@ const data = {
       url: "#",
       icon: IconReport,
     },
+    {
+      name: "Business Model Canvas",
+      url: "/bmcanvas",
+      icon: IconReport,
+    },
   ],
 }
 

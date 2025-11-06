@@ -3,132 +3,95 @@
   "value": 75,
   "children": [
     {
-      "name": "Circular economy score",
+      "name": "Circular Material Inflow",
       "value": 82,
       "children": [
         {
-          "name": "Material flow and circularity",
-          "value": 11,
-          "children": [
-            {
-              "name": "Resource inflow",
-              "value": 22,
-              "children": [
-                {
-                  "name": "Circular inflow",
-                  "value": 77,
-                  "children": [
-                    {
-                      "name": "Share of circular inflow",
-                      "value": 11
-                    }
-                  ]
-                },
-                {
-                  "name": "Circular design",
-                  "value": 22,
-                  "children": [
-                    {
-                      "name": "Level of circularity to close the loop/ narrow the loop / slow the loop",
-                      "value": 77
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Resource outflow",
-              "value": 56,
-              "children": [
-                {
-                  "name": "Operational waste",
-                  "value": 34,
-                  "children": [
-                    { "name": "Reused in own operations", "value": 83 },
-                    { "name": "Recycled outside own operations", "value": 45 },
-                    { "name": "Landfiled", "value": 64 }
-                  ]
-                },
-                {
-                  "name": "Products and materials",
-                  "value": 32,
-                  "children": [
-                    { "name": "Post use collection", "value": 35 },
-                    { "name": "Product life extension and utilisation", "value": 29 }
-                  ]
-                }
-              ]
-            }
-          ]
+          "name": "Renewable Material User",
+          "value": 11
         },
         {
-          "name": "Water",
-          "value": 46,
-          "children": [
-            { "name": "Water circulation own operations", "value": 23 },
-            { "name": "Water pollution", "value": 89 }
-          ]
+          "name": "Recycled Material Use",
+          "value": 46
         },
         {
-          "name": "Energy use",
-          "value": 12,
-          "children": [
-            { "name": "Logistics", "value": 35 },
-            { "name": "Own operations", "value": 87 }
-          ]
+          "name": "Non-renewable Material Use",
+          "value": 12
         },
         {
-          "name": "GHG emissions",
-          "value": 99,
-          "children": [
-            { "name": "Scope 1", "value": 11 },
-            { "name": "Scope 2", "value": 22 },
-            { "name": "Scope 3", "value": 33 }
-          ]
+          "name": "Products & Processes Designed with CE Criteria",
+          "value": 99
         },
         {
-          "name": "Circular Business Model performance",
-          "value": 54,
-          "children": [
-            { "name": "Rate of CE business model adoption within BU/ product category", "value": 45 },
-            { "name": "Rate of integration of CE in processes", "value": 67 }
-          ]
+          "name": "Supplier's CE Level",
+          "value": 54
         }
       ]
     },
     {
-      "name": "Sustainability score",
+      "name": "Circular Material Outflow",
       "value": 56,
       "children": [
         {
-          "name": "Level of maturity through available data",
-          "value": 56,
-          "children": [
-            { "name": "Purpose level", "value": 45 },
-            { "name": "Leadership level", "value": 87 },
-            { "name": "Efficiency level", "value": 23 },
-            { "name": "Obligation level", "value": 45 },
-            { "name": "Compliance level", "value": 78 },
-            { "name": "Disregard level", "value": 97 }
-          ]
+          "name": "Post-production Material Reuse",
+          "value": 56
+        },
+        {
+          "name": "Post-production Material Loss",
+          "value": 46
+        },
+        {
+          "name": "Product Use Life &amp; Utilisation Rate",
+          "value": 66
+        },
+        {
+          "name": "Post-use Waste Collection",
+          "value": 52
+        },
+        {
+          "name": "Post-use Waste Recycling",
+          "value": 86
+        },
+        {
+          "name": "Post-use Waste Loss",
+          "value": 86
         }
+
       ]
     },
     {
-      "name": "CE level of the ecosystem",
+      "name": "GHG Emissions",
       "value": 23,
       "children": [
-        { "name": "Suppliers' CE level", "value": 23 }
+        { "name": "Total Scope 1 GHG Emissions", "value": 43 },
+        { "name": "Total Scope 2 GHG Emissions", "value": 23 },
+        { "name": "Total Scope 3 GHG Emissions", "value": 73 },
+        { "name": "Energy Consumption", "value": 53 },
+        { "name": "Renewable Energy Share", "value": 13 },
+        { "name": "Emission Reduction Rate", "value": 3 },
+        { "name": "Carbon Credits", "value": 93 }
       ]
     },
     {
-      "name": "Data & digitization",
+      "name": "Water and Pollution",
       "value": 11,
       "children": [
-        {
-          "name": "Level of availability, interconnectedness and standardisation of data",
-          "value": 11
-        }
+        { "name": "Total Water Withdrawal and Consumption", "value": 43 },
+        { "name": "Water Consumption per Product & Service", "value": 63 },
+        { "name": "Water Reuse &amp; Recycled in operations", "value": 73 },
+        { "name": "Wastewater Discharge", "value": 53 },
+        { "name": "Wastewater Treatment Rate", "value": 53 }
+      ]
+    },
+    {
+      "name": "Circular Economy Enablers",
+      "value": 11,
+      "children": [
+        { "name": "Collaboration Rate with Value Chain Actors", "value": 43 },
+        { "name": "Data and Digitalisation Rate", "value": 53 },
+        { "name": "Long-term CE Strategy", "value": 58 },
+        { "name": "Rate of CE Literacy", "value": 73 },
+        { "name": "Leadership Buy-in Level", "value": 53 }
       ]
     }
   ]

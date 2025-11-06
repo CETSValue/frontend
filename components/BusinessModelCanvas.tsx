@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
+import { Ref } from "react";
+import { ConnectDragPreview, DragSourceHookSpec, DropTargetHookSpec, FactoryOrInstance,} from "react-dnd";
+
+
 /**
  * BusinessModelCanvas (React-DnD version)
  * Interactive drag-and-drop Business Model Canvas.
@@ -70,7 +74,17 @@ function uid(prefix = "id") {
   return `${prefix}_${Math.random().toString(36).slice(2, 9)}`;
 }
 
+export function useImprovedDrag<DragObject = unknown, DropResult = unknown, CollectedProps = unknown>(specArg: FactoryOrInstance<DragSourceHookSpec<DragObject, DropResult, CollectedProps>>, deps?: unknown[]): [CollectedProps, Ref<any>, ConnectDragPreview] {
+ const [state, DragSourceRef, preview] = useDrag(specArg, deps);
 
+ // Construct a ref function that actually conforms to type definition for `ref={}` property
+ // For some reason the default exported one does not compile.
+ const improvedRef: Ref<any> = (e) => {
+   DragSourceRef(e);
+ }
+
+ return [state, improvedRef, preview];
+}
 
 
 export default function BusinessModelCanvas() {
@@ -290,12 +304,12 @@ function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, edit
 }
 
 function DraggableItem({ item, sectionId, updateItem, deleteItem, editing, setEditing } : DraggableItemProps) {
-  const [, drag] = useDrag({ type: "ITEM", item: { item, fromId: sectionId } });
+  const [, drag] = useImprovedDrag({ type: "ITEM", item: { item, fromId: sectionId } });
   const [value, setValue] = useState(item.text);
   useEffect(() => setValue(item.text), [item.text]);
 
   const save = () => {
-    updateItem(sectionId, item.id, value);
+    updateItem(sectionId, item.id, value ? value : '');
     setEditing(null);
   };
 

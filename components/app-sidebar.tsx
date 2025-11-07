@@ -135,7 +135,7 @@ const data = {
       icon: IconDatabase,
     },
     {
-      name: "Cicularity Gap Report",
+      name: "Circularity Gap Report",
       url: "#",
       icon: IconReport,
     },

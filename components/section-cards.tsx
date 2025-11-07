@@ -63,7 +63,7 @@ export function SectionCards() {
         <CardHeader>
           <CardDescription>Resilience Score</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            <span className="bg-yellow-400 lg:px-3 text-white">64</span>
+            <span className="bg-yellow-400 lg:px-3 text-white">69</span>
           </CardTitle>
           <CardAction>
             <Badge variant="outline">

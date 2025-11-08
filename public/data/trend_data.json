@@ -1,0 +1,834 @@
+[
+    {
+        "date": "2023-11-11",
+        "sustainability": 46,
+        "profitability": 19,
+        "resilience": 52,
+        "breakeven": 26,
+        "efficiency": 72
+    },
+    {
+        "date": "2023-11-18",
+        "sustainability": 21,
+        "profitability": 2,
+        "resilience": 58,
+        "breakeven": 45,
+        "efficiency": 56
+    },
+    {
+        "date": "2023-11-25",
+        "sustainability": 26,
+        "profitability": 17,
+        "resilience": 87,
+        "breakeven": 25,
+        "efficiency": 66
+    },
+    {
+        "date": "2023-12-02",
+        "sustainability": 35,
+        "profitability": 5,
+        "resilience": 53,
+        "breakeven": 48,
+        "efficiency": 72
+    },
+    {
+        "date": "2023-12-09",
+        "sustainability": 54,
+        "profitability": 10,
+        "resilience": 41,
+        "breakeven": 44,
+        "efficiency": 45
+    },
+    {
+        "date": "2023-12-16",
+        "sustainability": 36,
+        "profitability": 13,
+        "resilience": 79,
+        "breakeven": 22,
+        "efficiency": 63
+    },
+    {
+        "date": "2023-12-23",
+        "sustainability": 75,
+        "profitability": 19,
+        "resilience": 86,
+        "breakeven": 47,
+        "efficiency": 33
+    },
+    {
+        "date": "2023-12-30",
+        "sustainability": 57,
+        "profitability": 17,
+        "resilience": 62,
+        "breakeven": 50,
+        "efficiency": 10
+    },
+    {
+        "date": "2024-01-06",
+        "sustainability": 68,
+        "profitability": 15,
+        "resilience": 68,
+        "breakeven": 25,
+        "efficiency": 23
+    },
+    {
+        "date": "2024-01-13",
+        "sustainability": 24,
+        "profitability": 19,
+        "resilience": 90,
+        "breakeven": 51,
+        "efficiency": 74
+    },
+    {
+        "date": "2024-01-20",
+        "sustainability": 26,
+        "profitability": 19,
+        "resilience": 89,
+        "breakeven": 31,
+        "efficiency": 11
+    },
+    {
+        "date": "2024-01-27",
+        "sustainability": 26,
+        "profitability": 18,
+        "resilience": 73,
+        "breakeven": 17,
+        "efficiency": 32
+    },
+    {
+        "date": "2024-02-03",
+        "sustainability": 68,
+        "profitability": 16,
+        "resilience": 86,
+        "breakeven": 39,
+        "efficiency": 76
+    },
+    {
+        "date": "2024-02-10",
+        "sustainability": 21,
+        "profitability": 19,
+        "resilience": 79,
+        "breakeven": 37,
+        "efficiency": 48
+    },
+    {
+        "date": "2024-02-17",
+        "sustainability": 62,
+        "profitability": 13,
+        "resilience": 59,
+        "breakeven": 22,
+        "efficiency": 70
+    },
+    {
+        "date": "2024-02-24",
+        "sustainability": 49,
+        "profitability": 12,
+        "resilience": 83,
+        "breakeven": 19,
+        "efficiency": 50
+    },
+    {
+        "date": "2024-03-02",
+        "sustainability": 22,
+        "profitability": 6,
+        "resilience": 83,
+        "breakeven": 22,
+        "efficiency": 79
+    },
+    {
+        "date": "2024-03-09",
+        "sustainability": 28,
+        "profitability": 2,
+        "resilience": 88,
+        "breakeven": 28,
+        "efficiency": 61
+    },
+    {
+        "date": "2024-03-16",
+        "sustainability": 30,
+        "profitability": 10,
+        "resilience": 89,
+        "breakeven": 41,
+        "efficiency": 25
+    },
+    {
+        "date": "2024-03-23",
+        "sustainability": 45,
+        "profitability": 8,
+        "resilience": 56,
+        "breakeven": 42,
+        "efficiency": 65
+    },
+    {
+        "date": "2024-03-30",
+        "sustainability": 40,
+        "profitability": 7,
+        "resilience": 59,
+        "breakeven": 22,
+        "efficiency": 79
+    },
+    {
+        "date": "2024-04-06",
+        "sustainability": 79,
+        "profitability": 15,
+        "resilience": 55,
+        "breakeven": 42,
+        "efficiency": 62
+    },
+    {
+        "date": "2024-04-13",
+        "sustainability": 55,
+        "profitability": 19,
+        "resilience": 46,
+        "breakeven": 35,
+        "efficiency": 78
+    },
+    {
+        "date": "2024-04-20",
+        "sustainability": 62,
+        "profitability": 12,
+        "resilience": 79,
+        "breakeven": 28,
+        "efficiency": 62
+    },
+    {
+        "date": "2024-04-27",
+        "sustainability": 51,
+        "profitability": 4,
+        "resilience": 85,
+        "breakeven": 19,
+        "efficiency": 21
+    },
+    {
+        "date": "2024-05-04",
+        "sustainability": 72,
+        "profitability": 1,
+        "resilience": 44,
+        "breakeven": 12,
+        "efficiency": 59
+    },
+    {
+        "date": "2024-05-11",
+        "sustainability": 43,
+        "profitability": 9,
+        "resilience": 78,
+        "breakeven": 11,
+        "efficiency": 46
+    },
+    {
+        "date": "2024-05-18",
+        "sustainability": 41,
+        "profitability": 4,
+        "resilience": 40,
+        "breakeven": 11,
+        "efficiency": 70
+    },
+    {
+        "date": "2024-05-25",
+        "sustainability": 50,
+        "profitability": 9,
+        "resilience": 46,
+        "breakeven": 35,
+        "efficiency": 62
+    },
+    {
+        "date": "2024-06-01",
+        "sustainability": 73,
+        "profitability": 0,
+        "resilience": 71,
+        "breakeven": 41,
+        "efficiency": 13
+    },
+    {
+        "date": "2024-06-08",
+        "sustainability": 50,
+        "profitability": 15,
+        "resilience": 50,
+        "breakeven": 41,
+        "efficiency": 16
+    },
+    {
+        "date": "2024-06-15",
+        "sustainability": 58,
+        "profitability": 4,
+        "resilience": 83,
+        "breakeven": 56,
+        "efficiency": 27
+    },
+    {
+        "date": "2024-06-22",
+        "sustainability": 38,
+        "profitability": 8,
+        "resilience": 44,
+        "breakeven": 42,
+        "efficiency": 27
+    },
+    {
+        "date": "2024-06-29",
+        "sustainability": 38,
+        "profitability": 5,
+        "resilience": 82,
+        "breakeven": 23,
+        "efficiency": 36
+    },
+    {
+        "date": "2024-07-06",
+        "sustainability": 72,
+        "profitability": 3,
+        "resilience": 53,
+        "breakeven": 10,
+        "efficiency": 57
+    },
+    {
+        "date": "2024-07-13",
+        "sustainability": 64,
+        "profitability": 8,
+        "resilience": 63,
+        "breakeven": 39,
+        "efficiency": 33
+    },
+    {
+        "date": "2024-07-20",
+        "sustainability": 36,
+        "profitability": 20,
+        "resilience": 71,
+        "breakeven": 12,
+        "efficiency": 28
+    },
+    {
+        "date": "2024-07-27",
+        "sustainability": 80,
+        "profitability": 16,
+        "resilience": 64,
+        "breakeven": 20,
+        "efficiency": 36
+    },
+    {
+        "date": "2024-08-03",
+        "sustainability": 49,
+        "profitability": 3,
+        "resilience": 76,
+        "breakeven": 24,
+        "efficiency": 14
+    },
+    {
+        "date": "2024-08-10",
+        "sustainability": 74,
+        "profitability": 19,
+        "resilience": 78,
+        "breakeven": 24,
+        "efficiency": 52
+    },
+    {
+        "date": "2024-08-17",
+        "sustainability": 38,
+        "profitability": 15,
+        "resilience": 52,
+        "breakeven": 52,
+        "efficiency": 41
+    },
+    {
+        "date": "2024-08-24",
+        "sustainability": 58,
+        "profitability": 6,
+        "resilience": 41,
+        "breakeven": 44,
+        "efficiency": 20
+    },
+    {
+        "date": "2024-08-31",
+        "sustainability": 54,
+        "profitability": 6,
+        "resilience": 73,
+        "breakeven": 25,
+        "efficiency": 76
+    },
+    {
+        "date": "2024-09-07",
+        "sustainability": 63,
+        "profitability": 2,
+        "resilience": 68,
+        "breakeven": 22,
+        "efficiency": 79
+    },
+    {
+        "date": "2024-09-14",
+        "sustainability": 28,
+        "profitability": 14,
+        "resilience": 81,
+        "breakeven": 11,
+        "efficiency": 60
+    },
+    {
+        "date": "2024-09-21",
+        "sustainability": 23,
+        "profitability": 15,
+        "resilience": 60,
+        "breakeven": 22,
+        "efficiency": 12
+    },
+    {
+        "date": "2024-09-28",
+        "sustainability": 69,
+        "profitability": 20,
+        "resilience": 58,
+        "breakeven": 54,
+        "efficiency": 36
+    },
+    {
+        "date": "2024-10-05",
+        "sustainability": 68,
+        "profitability": 3,
+        "resilience": 64,
+        "breakeven": 34,
+        "efficiency": 39
+    },
+    {
+        "date": "2024-10-12",
+        "sustainability": 72,
+        "profitability": 17,
+        "resilience": 47,
+        "breakeven": 11,
+        "efficiency": 37
+    },
+    {
+        "date": "2024-10-19",
+        "sustainability": 67,
+        "profitability": 3,
+        "resilience": 78,
+        "breakeven": 21,
+        "efficiency": 71
+    },
+    {
+        "date": "2024-10-26",
+        "sustainability": 60,
+        "profitability": 18,
+        "resilience": 61,
+        "breakeven": 46,
+        "efficiency": 44
+    },
+    {
+        "date": "2024-11-02",
+        "sustainability": 20,
+        "profitability": 14,
+        "resilience": 73,
+        "breakeven": 13,
+        "efficiency": 21
+    },
+    {
+        "date": "2024-11-09",
+        "sustainability": 35,
+        "profitability": 18,
+        "resilience": 81,
+        "breakeven": 17,
+        "efficiency": 17
+    },
+    {
+        "date": "2024-11-16",
+        "sustainability": 27,
+        "profitability": 4,
+        "resilience": 88,
+        "breakeven": 13,
+        "efficiency": 39
+    },
+    {
+        "date": "2024-11-23",
+        "sustainability": 26,
+        "profitability": 1,
+        "resilience": 65,
+        "breakeven": 50,
+        "efficiency": 49
+    },
+    {
+        "date": "2024-11-30",
+        "sustainability": 60,
+        "profitability": 18,
+        "resilience": 75,
+        "breakeven": 35,
+        "efficiency": 11
+    },
+    {
+        "date": "2024-12-07",
+        "sustainability": 38,
+        "profitability": 11,
+        "resilience": 69,
+        "breakeven": 42,
+        "efficiency": 64
+    },
+    {
+        "date": "2024-12-14",
+        "sustainability": 74,
+        "profitability": 12,
+        "resilience": 58,
+        "breakeven": 17,
+        "efficiency": 60
+    },
+    {
+        "date": "2024-12-21",
+        "sustainability": 36,
+        "profitability": 18,
+        "resilience": 63,
+        "breakeven": 25,
+        "efficiency": 49
+    },
+    {
+        "date": "2024-12-28",
+        "sustainability": 65,
+        "profitability": 5,
+        "resilience": 63,
+        "breakeven": 44,
+        "efficiency": 45
+    },
+    {
+        "date": "2025-01-04",
+        "sustainability": 41,
+        "profitability": 5,
+        "resilience": 54,
+        "breakeven": 41,
+        "efficiency": 27
+    },
+    {
+        "date": "2025-01-11",
+        "sustainability": 27,
+        "profitability": 7,
+        "resilience": 72,
+        "breakeven": 10,
+        "efficiency": 60
+    },
+    {
+        "date": "2025-01-18",
+        "sustainability": 33,
+        "profitability": 17,
+        "resilience": 89,
+        "breakeven": 25,
+        "efficiency": 19
+    },
+    {
+        "date": "2025-01-25",
+        "sustainability": 75,
+        "profitability": 17,
+        "resilience": 63,
+        "breakeven": 56,
+        "efficiency": 13
+    },
+    {
+        "date": "2025-02-01",
+        "sustainability": 77,
+        "profitability": 14,
+        "resilience": 54,
+        "breakeven": 20,
+        "efficiency": 10
+    },
+    {
+        "date": "2025-02-08",
+        "sustainability": 56,
+        "profitability": 16,
+        "resilience": 57,
+        "breakeven": 24,
+        "efficiency": 63
+    },
+    {
+        "date": "2025-02-15",
+        "sustainability": 43,
+        "profitability": 2,
+        "resilience": 64,
+        "breakeven": 42,
+        "efficiency": 71
+    },
+    {
+        "date": "2025-02-22",
+        "sustainability": 58,
+        "profitability": 10,
+        "resilience": 41,
+        "breakeven": 47,
+        "efficiency": 70
+    },
+    {
+        "date": "2025-03-01",
+        "sustainability": 25,
+        "profitability": 2,
+        "resilience": 86,
+        "breakeven": 14,
+        "efficiency": 30
+    },
+    {
+        "date": "2025-03-08",
+        "sustainability": 68,
+        "profitability": 17,
+        "resilience": 51,
+        "breakeven": 46,
+        "efficiency": 68
+    },
+    {
+        "date": "2025-03-15",
+        "sustainability": 34,
+        "profitability": 0,
+        "resilience": 84,
+        "breakeven": 11,
+        "efficiency": 16
+    },
+    {
+        "date": "2025-03-22",
+        "sustainability": 70,
+        "profitability": 11,
+        "resilience": 86,
+        "breakeven": 36,
+        "efficiency": 24
+    },
+    {
+        "date": "2025-03-29",
+        "sustainability": 60,
+        "profitability": 10,
+        "resilience": 79,
+        "breakeven": 45,
+        "efficiency": 14
+    },
+    {
+        "date": "2025-04-05",
+        "sustainability": 70,
+        "profitability": 3,
+        "resilience": 68,
+        "breakeven": 44,
+        "efficiency": 76
+    },
+    {
+        "date": "2025-04-12",
+        "sustainability": 49,
+        "profitability": 13,
+        "resilience": 75,
+        "breakeven": 26,
+        "efficiency": 11
+    },
+    {
+        "date": "2025-04-19",
+        "sustainability": 24,
+        "profitability": 11,
+        "resilience": 69,
+        "breakeven": 53,
+        "efficiency": 15
+    },
+    {
+        "date": "2025-04-26",
+        "sustainability": 59,
+        "profitability": 4,
+        "resilience": 47,
+        "breakeven": 35,
+        "efficiency": 28
+    },
+    {
+        "date": "2025-05-03",
+        "sustainability": 29,
+        "profitability": 11,
+        "resilience": 81,
+        "breakeven": 39,
+        "efficiency": 21
+    },
+    {
+        "date": "2025-05-10",
+        "sustainability": 61,
+        "profitability": 13,
+        "resilience": 89,
+        "breakeven": 26,
+        "efficiency": 19
+    },
+    {
+        "date": "2025-05-17",
+        "sustainability": 60,
+        "profitability": 19,
+        "resilience": 72,
+        "breakeven": 40,
+        "efficiency": 79
+    },
+    {
+        "date": "2025-05-24",
+        "sustainability": 40,
+        "profitability": 11,
+        "resilience": 50,
+        "breakeven": 33,
+        "efficiency": 54
+    },
+    {
+        "date": "2025-05-31",
+        "sustainability": 77,
+        "profitability": 15,
+        "resilience": 67,
+        "breakeven": 18,
+        "efficiency": 57
+    },
+    {
+        "date": "2025-06-07",
+        "sustainability": 38,
+        "profitability": 14,
+        "resilience": 89,
+        "breakeven": 28,
+        "efficiency": 33
+    },
+    {
+        "date": "2025-06-14",
+        "sustainability": 35,
+        "profitability": 3,
+        "resilience": 89,
+        "breakeven": 13,
+        "efficiency": 26
+    },
+    {
+        "date": "2025-06-21",
+        "sustainability": 64,
+        "profitability": 8,
+        "resilience": 53,
+        "breakeven": 34,
+        "efficiency": 47
+    },
+    {
+        "date": "2025-06-28",
+        "sustainability": 68,
+        "profitability": 3,
+        "resilience": 57,
+        "breakeven": 13,
+        "efficiency": 64
+    },
+    {
+        "date": "2025-07-05",
+        "sustainability": 48,
+        "profitability": 7,
+        "resilience": 80,
+        "breakeven": 38,
+        "efficiency": 71
+    },
+    {
+        "date": "2025-07-12",
+        "sustainability": 72,
+        "profitability": 16,
+        "resilience": 49,
+        "breakeven": 53,
+        "efficiency": 30
+    },
+    {
+        "date": "2025-07-19",
+        "sustainability": 75,
+        "profitability": 18,
+        "resilience": 70,
+        "breakeven": 33,
+        "efficiency": 51
+    },
+    {
+        "date": "2025-07-26",
+        "sustainability": 42,
+        "profitability": 8,
+        "resilience": 67,
+        "breakeven": 11,
+        "efficiency": 52
+    },
+    {
+        "date": "2025-08-02",
+        "sustainability": 71,
+        "profitability": 3,
+        "resilience": 52,
+        "breakeven": 37,
+        "efficiency": 34
+    },
+    {
+        "date": "2025-08-09",
+        "sustainability": 65,
+        "profitability": 9,
+        "resilience": 75,
+        "breakeven": 41,
+        "efficiency": 64
+    },
+    {
+        "date": "2025-08-16",
+        "sustainability": 61,
+        "profitability": 6,
+        "resilience": 57,
+        "breakeven": 27,
+        "efficiency": 75
+    },
+    {
+        "date": "2025-08-23",
+        "sustainability": 60,
+        "profitability": 14,
+        "resilience": 44,
+        "breakeven": 32,
+        "efficiency": 54
+    },
+    {
+        "date": "2025-08-30",
+        "sustainability": 36,
+        "profitability": 15,
+        "resilience": 48,
+        "breakeven": 44,
+        "efficiency": 39
+    },
+    {
+        "date": "2025-09-06",
+        "sustainability": 79,
+        "profitability": 12,
+        "resilience": 51,
+        "breakeven": 30,
+        "efficiency": 70
+    },
+    {
+        "date": "2025-09-13",
+        "sustainability": 75,
+        "profitability": 16,
+        "resilience": 55,
+        "breakeven": 11,
+        "efficiency": 11
+    },
+    {
+        "date": "2025-09-20",
+        "sustainability": 53,
+        "profitability": 19,
+        "resilience": 86,
+        "breakeven": 14,
+        "efficiency": 62
+    },
+    {
+        "date": "2025-09-27",
+        "sustainability": 63,
+        "profitability": 2,
+        "resilience": 75,
+        "breakeven": 34,
+        "efficiency": 76
+    },
+    {
+        "date": "2025-10-04",
+        "sustainability": 46,
+        "profitability": 2,
+        "resilience": 49,
+        "breakeven": 32,
+        "efficiency": 55
+    },
+    {
+        "date": "2025-10-11",
+        "sustainability": 74,
+        "profitability": 8,
+        "resilience": 66,
+        "breakeven": 33,
+        "efficiency": 35
+    },
+    {
+        "date": "2025-10-18",
+        "sustainability": 39,
+        "profitability": 14,
+        "resilience": 88,
+        "breakeven": 34,
+        "efficiency": 47
+    },
+    {
+        "date": "2025-10-25",
+        "sustainability": 24,
+        "profitability": 1,
+        "resilience": 88,
+        "breakeven": 25,
+        "efficiency": 69
+    },
+    {
+        "date": "2025-11-01",
+        "sustainability": 66,
+        "profitability": 18,
+        "resilience": 62,
+        "breakeven": 39,
+        "efficiency": 36
+    }
+]

@@ -32,6 +32,35 @@ import {
 
 export const description = "An interactive area chart"
 
+import trendData from "../public/data/trend_data.json"; 
+
+const trendConfig = {
+  scores: {
+    label: "Scores",
+  },
+  sustainability: {
+    label: "Circularity and Sustainability",
+    color: "var(--primary)",
+  },
+  profitability: {
+    label: "Profitability",
+    color: "var(--primary)",
+  },
+  resilience: {
+    label: "Resilience",
+    color: "var(--primary)",
+  },
+  breakeven: {
+    label: "Break-Even",
+    color: "var(--primary)",
+  },
+  efficiency: {
+    label: "Efficiency",
+    color: "var(--primary)",
+  }
+} satisfies ChartConfig
+
+
 const chartData = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },
   { date: "2024-04-02", desktop: 97, mobile: 180 },
@@ -142,37 +171,41 @@ const chartConfig = {
 
 export function ChartAreaInteractive() {
   const isMobile = useIsMobile()
-  const [timeRange, setTimeRange] = React.useState("90d")
+  const [timeRange, setTimeRange] = React.useState("365d")
 
   React.useEffect(() => {
     if (isMobile) {
-      setTimeRange("7d")
+      setTimeRange("14d")
     }
   }, [isMobile])
 
-  const filteredData = chartData.filter((item) => {
+  const filteredData = trendData.filter((item) => {
     const date = new Date(item.date)
-    const referenceDate = new Date("2024-06-30")
-    let daysToSubtract = 90
+    const referenceDate = new Date("2025-11-08")
+    let daysToSubtract = 365
     if (timeRange === "30d") {
       daysToSubtract = 30
-    } else if (timeRange === "7d") {
-      daysToSubtract = 7
+    } else if (timeRange === "90d") {
+      daysToSubtract = 90
+    } else if (timeRange === "365d") {
+      daysToSubtract = 365
     }
     const startDate = new Date(referenceDate)
     startDate.setDate(startDate.getDate() - daysToSubtract)
     return date >= startDate
   })
 
+  console.log("Data");
+  console.log(filteredData);
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardTitle>CE Scores</CardTitle>
+        <CardTitle>CE Pillars</CardTitle>
         <CardDescription>
           <span className="hidden @[540px]/card:block">
-            Trends for the last 3 months
+            Score trends
           </span>
-          <span className="@[540px]/card:hidden">Last 3 months</span>
+          <span className="@[540px]/card:hidden">Last year</span>
         </CardDescription>
         <CardAction>
           <ToggleGroup
@@ -182,9 +215,10 @@ export function ChartAreaInteractive() {
             variant="outline"
             className="hidden *:data-[slot=toggle-group-item]:!px-4 @[767px]/card:flex"
           >
+            <ToggleGroupItem value="365d">Last year</ToggleGroupItem>
             <ToggleGroupItem value="90d">Last 3 months</ToggleGroupItem>
             <ToggleGroupItem value="30d">Last 30 days</ToggleGroupItem>
-            <ToggleGroupItem value="7d">Last 7 days</ToggleGroupItem>
+            
           </ToggleGroup>
           <Select value={timeRange} onValueChange={setTimeRange}>
             <SelectTrigger
@@ -195,22 +229,23 @@ export function ChartAreaInteractive() {
               <SelectValue placeholder="Last 3 months" />
             </SelectTrigger>
             <SelectContent className="rounded-xl">
+              <SelectItem value="365d" className="rounded-lg">
+                Last year
+              </SelectItem>
               <SelectItem value="90d" className="rounded-lg">
                 Last 3 months
               </SelectItem>
               <SelectItem value="30d" className="rounded-lg">
                 Last 30 days
               </SelectItem>
-              <SelectItem value="7d" className="rounded-lg">
-                Last 7 days
-              </SelectItem>
+              
             </SelectContent>
           </Select>
         </CardAction>
       </CardHeader>
       <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
         <ChartContainer
-          config={chartConfig}
+          config={trendConfig}
           className="aspect-auto h-[250px] w-full"
         >
           <AreaChart data={filteredData}>
@@ -260,9 +295,10 @@ export function ChartAreaInteractive() {
               content={
                 <ChartTooltipContent
                   labelFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
+                    return new Date(value).toLocaleDateString("en-UK", {
                       month: "short",
                       day: "numeric",
+                      year: "numeric"
                     })
                   }}
                   indicator="dot"
@@ -270,20 +306,45 @@ export function ChartAreaInteractive() {
               }
             />
             <Area
-              dataKey="mobile"
+              dataKey="sustainability"
               type="natural"
               fill="url(#fillMobile)"
               stroke="var(--color-mobile)"
               stackId="a"
             />
             <Area
-              dataKey="desktop"
+              dataKey="profitability"
+              type="natural"
+              fill="url(#fillDesktop)"
+              stroke="var(--color-desktop)"
+              stackId="a"
+            />
+
+            <Area
+              dataKey="resilience"
+              type="natural"
+              fill="url(#fillDesktop)"
+              stroke="var(--color-desktop)"
+              stackId="a"
+            />
+
+            <Area
+              dataKey="breakeven"
+              type="natural"
+              fill="url(#fillDesktop)"
+              stroke="var(--color-desktop)"
+              stackId="a"
+            />
+
+            <Area
+              dataKey="efficiency"
               type="natural"
               fill="url(#fillDesktop)"
               stroke="var(--color-desktop)"
               stackId="a"
             />
           </AreaChart>
+          
         </ChartContainer>
       </CardContent>
     </Card>

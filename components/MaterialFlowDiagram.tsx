@@ -37,6 +37,8 @@ interface NodeParams {
     data: Node
 }
 
+const lastUpdated = "08 Nov 2025 15:28";
+
 // ---- Custom node component with icon + label ----
 const CustomNode = ({ data }: NodeParams) => (
   <div
@@ -507,8 +509,8 @@ export default function MaterialFlowDiagram() {
       <div style={{ marginBottom: 8 }}>
         <h4 style={{ fontSize: 14, fontWeight: 700, color: "#666" }}>Material Flow</h4>
         <h5 style={{ fontSize: 12, fontWeight: 700, color: "#2C9B48" }}>
-          Last updated 07 Nov 2025 08:45
-        </h5>
+          Last updated {lastUpdated}
+          </h5>
       </div>
 
       <ReactFlow

@@ -17,7 +17,7 @@ export function SectionCards() {
       <a href="/sustainability">
         <CardHeader>
           <CardDescription>Circularity & Sustainability Score</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+          <CardTitle className="py-1 text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
             <span className="bg-green-400 lg:px-3 text-white">64</span>
           </CardTitle>
           <CardAction>
@@ -27,7 +27,7 @@ export function SectionCards() {
             </Badge>
           </CardAction>
         </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
+        <CardFooter className="py-1 flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
             Up 1% this period <IconTrendingUp className="size-4" />
           </div>
@@ -38,9 +38,10 @@ export function SectionCards() {
       </a>
       </Card>
       <Card className="@container/card">
+        <a href="/profitability">
         <CardHeader>
           <CardDescription>Profit Score</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+          <CardTitle className="py-5 text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
             <span className="bg-red-400 lg:px-3 text-white">36</span>
           </CardTitle>
           <CardAction>
@@ -50,19 +51,20 @@ export function SectionCards() {
             </Badge>
           </CardAction>
         </CardHeader>
-        <CardFooter className="flex-col items-start gap-1.5 text-sm">
+        <CardFooter className="py-1 flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
             Problems with distribution <IconTrendingDown className="size-4" />
           </div>
           <div className="text-muted-foreground">Distribution requires attention</div>
         </CardFooter>
+        </a>
       </Card>
 
       <Card className="@container/card">
       <a href="/resilience">
         <CardHeader>
           <CardDescription>Resilience Score</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+          <CardTitle className="py-5 text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
             <span className="bg-yellow-400 lg:px-3 text-white">69</span>
           </CardTitle>
           <CardAction>
@@ -83,10 +85,11 @@ export function SectionCards() {
       </a>
       </Card>
       <Card className="@container/card">
+      <a href="/breakeven">
         <CardHeader>
           <CardDescription>Break Even Point</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            July 2027
+          <CardTitle className="py-2 text-2xl font-semibold tabular-nums @[250px]/card:text-2xl">
+            1 year<br/> 9 months
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -103,12 +106,14 @@ export function SectionCards() {
             Production delays
           </div>
         </CardFooter>
+        </a>
       </Card>
       
       <Card className="@container/card">
+      <a href="/efficiency">
         <CardHeader>
           <CardDescription>Efficiency Score</CardDescription>
-          <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+          <CardTitle className="py-5 text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
             <span className="bg-green-400 lg:px-3 text-white">60%</span>
           </CardTitle>
           <CardAction>
@@ -124,7 +129,9 @@ export function SectionCards() {
           </div>
           <div className="text-muted-foreground">Meets growth projections</div>
         </CardFooter>
+      </a>
       </Card>
+      
     </div>
   )
 }

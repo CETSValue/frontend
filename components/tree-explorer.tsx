@@ -1,8 +1,6 @@
 import React, { useState, useEffect, FC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronDown } from "lucide-react";
-import Data from "../public/data/sustainability.json"; // adjust path as needed
-//import Data from "../public/data/resilience.json"; // adjust path as needed
 
 interface ParsedNode {
   name: string;
@@ -73,7 +71,11 @@ const TreeNode: FC<TreeNodeProps> = ({ name, value, children, level=0 }) => {
   );
 };
 
-const SustainabilityTreeExplorer = () => {
+interface ExplorerParams {
+    data: ParsedNode
+}
+
+const TreeExplorer = ( {data } : ExplorerParams) => {
   const [tree, setTree] = useState<ParsedNode>();
 
   useEffect(() => {
@@ -92,7 +94,7 @@ const SustainabilityTreeExplorer = () => {
       });
     };
 
-    const root = Data;
+    const root = data;
 
     const treeStructure = {
       name: root.name,
@@ -107,7 +109,7 @@ const SustainabilityTreeExplorer = () => {
   return (
     <div className="p-6 w-full max-w-3xl mx-auto bg-white shadow-md rounded-2xl">
       <h2 className="text-2xl font-semibold mb-4 text-center">
-        🌿 Circularity and Sustainability Tree Explorer
+        🌿 Tree Explorer
       </h2>
       <TreeNode
         name={tree.name}
@@ -118,4 +120,4 @@ const SustainabilityTreeExplorer = () => {
   );
 };
 
-export default SustainabilityTreeExplorer;
+export default TreeExplorer;

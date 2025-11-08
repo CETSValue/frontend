@@ -1,0 +1,11 @@
+{
+  "name": "Profitability Score",
+  "value": 36,
+  "children": [
+    { "name": "EBITDA Margin", "value": 82 },
+    { "name": "Gross Margin", "value": 22 },
+    { "name": "Operational Cost", "value": 32 },
+    { "name": "Admin Cost Efficiency", "value": 62 },
+    { "name": "Profit Sensitivity", "value": 28 }
+  ]
+}

@@ -2,18 +2,17 @@
 
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
-
 import {
   SidebarInset,
   SidebarProvider,
 } from "@/components/ui/sidebar"
 
-import { useUser } from "@auth0/nextjs-auth0"
-
 import TreeExplorer from "@/components/tree-explorer";
 import RadarExplorer from "@/components/radar-explorer";
 
-import Data from "../../public/data/resilience.json"; // adjust path if needed
+import Data from "../../public/data/efficiency.json"; // adjust path if needed
+
+import { useUser } from "@auth0/nextjs-auth0"
 
 const AllowedUsers: string[] = [
   'kulesha@gmail.com',

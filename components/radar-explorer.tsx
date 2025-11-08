@@ -10,7 +10,6 @@ import {
 } from "recharts";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import Data from "../public/data/sustainability.json"; // adjust path if needed
 
 interface ParsedNode {
   name: string;
@@ -18,7 +17,11 @@ interface ParsedNode {
   children?: ParsedNode[];
 }
 
-const SustainabilityRadarExplorer = () => {
+interface ExplorerParams {
+    data: ParsedNode
+}
+
+const RadarExplorer = ( { data } : ExplorerParams ) => {
   const [currentLevel, setCurrentLevel] = useState<ParsedNode>();
   const [path, setPath] = useState<ParsedNode[]>([]);
 
@@ -37,7 +40,7 @@ const SustainabilityRadarExplorer = () => {
   };
 
   useEffect(() => {
-    const root = Data;
+    const root = data;
     if (!root) return;
     const parsed = {
       name: root.name,
@@ -130,4 +133,4 @@ const SustainabilityRadarExplorer = () => {
   );
 };
 
-export default SustainabilityRadarExplorer;
+export default RadarExplorer;

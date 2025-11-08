@@ -1,6 +1,6 @@
 {
   "name": "Break-Even Score",
-  "value": "89",
+  "value": 89,
   "children": [
     { "name": "Financial Break-Even", "value": 82 },
     { "name": "Carbon Neutrality Break-Even", "value": 22 },

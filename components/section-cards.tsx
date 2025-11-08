@@ -38,8 +38,9 @@ export function SectionCards() {
       </a>
       </Card>
       <Card className="@container/card">
+        <a href="/profitability">
         <CardHeader>
-          <CardDescription>Profit Score</CardDescription>
+          <CardDescription>Profitability Score</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
             <span className="bg-red-400 lg:px-3 text-white">36</span>
           </CardTitle>
@@ -56,6 +57,7 @@ export function SectionCards() {
           </div>
           <div className="text-muted-foreground">Distribution requires attention</div>
         </CardFooter>
+        </a>
       </Card>
 
       <Card className="@container/card">
@@ -83,10 +85,11 @@ export function SectionCards() {
       </a>
       </Card>
       <Card className="@container/card">
+      <a href="/breakeven">
         <CardHeader>
           <CardDescription>Break Even Point</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            July 2027
+            1 year 9 months
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -103,9 +106,11 @@ export function SectionCards() {
             Production delays
           </div>
         </CardFooter>
+        </a>
       </Card>
       
       <Card className="@container/card">
+      <a href="/efficiency">
         <CardHeader>
           <CardDescription>Efficiency Score</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
@@ -124,7 +129,9 @@ export function SectionCards() {
           </div>
           <div className="text-muted-foreground">Meets growth projections</div>
         </CardFooter>
+      </a>
       </Card>
+      
     </div>
   )
 }

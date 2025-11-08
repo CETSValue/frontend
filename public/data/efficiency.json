@@ -1,0 +1,39 @@
+{
+    "name": "Efficiency Score",
+    "value": "60",
+    "children": [
+        { 
+            "name": "Operational Efficiency", 
+            "value": 82, 
+            "children": [
+                { "name": "Overall Equipment Effectiveness (OEE)", "value": 22 },
+                { "name": "Production Output Rate", "value": 22 },
+                { "name": "Equipment Availability", "value": 22 },
+                { "name": "Scrap Rate", "value": 22 },
+                { "name": "Cycle Time Rate", "value": 22 }
+            ] 
+        },
+        { 
+            "name": "Supply Chain Efficiency", 
+            "value": 22,       
+            "children": [
+                { "name": "Information Flow", "value": 22 },
+                { "name": "Material Flow", "value": 22 },
+                { "name": "Time to Issue detection", "value": 22 },
+                { "name": "Supply Chain conflicts recalibration Time", "value": 22 },
+                { "name": "Supply Chain conflicts recalibration Capacity", "value": 22 }
+            ] 
+        },
+        { 
+            "name": "Implementation Efficiency", 
+            "value": 32,
+            "children": [
+                { "name": "Change Management Readiness", "value": 22 },
+                { "name": "Strategic Alignment with Regulatory and Industry trends & requirements", "value": 22 },
+                { "name": "Key Projects Integration", "value": 22 },
+                { "name": "Time to Market", "value": 22 },
+                { "name": "Cost Efficiency", "value": 22 }    
+            ]
+        }
+    ]
+}

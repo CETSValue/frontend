@@ -13,7 +13,7 @@ import { useUser } from "@auth0/nextjs-auth0"
 import TreeExplorer from "@/components/tree-explorer";
 import RadarExplorer from "@/components/radar-explorer";
 
-import Data from "../../public/data/breakeven.json"; // adjust path if needed
+import Data from "../../public/data/sustainability.json"; // adjust path if needed
 
 const AllowedUsers: string[] = [
   'kulesha@gmail.com',

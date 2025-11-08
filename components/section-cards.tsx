@@ -40,7 +40,7 @@ export function SectionCards() {
       <Card className="@container/card">
         <a href="/profitability">
         <CardHeader>
-          <CardDescription>Profit Score</CardDescription>
+          <CardDescription>Profitability Score</CardDescription>
           <CardTitle className="py-5 text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
             <span className="bg-red-400 lg:px-3 text-white">36</span>
           </CardTitle>
@@ -87,7 +87,7 @@ export function SectionCards() {
       <Card className="@container/card">
       <a href="/breakeven">
         <CardHeader>
-          <CardDescription>Break Even Point</CardDescription>
+          <CardDescription>Break-Even Score</CardDescription>
           <CardTitle className="py-2 text-2xl font-semibold tabular-nums @[250px]/card:text-2xl">
             1 year<br/> 9 months
           </CardTitle>

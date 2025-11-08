@@ -2,10 +2,9 @@
 
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
-import TreeExplorer
- from "@/components/tree-explorer";
-import RadarExplorer
- from "@/components/radar-explorer";
+import TreeExplorer from "@/components/tree-explorer";
+import RadarExplorer from "@/components/radar-explorer";
+
 import {
   SidebarInset,
   SidebarProvider,

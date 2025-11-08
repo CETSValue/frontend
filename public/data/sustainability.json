@@ -93,6 +93,17 @@
         { "name": "Rate of CE Literacy", "value": 73 },
         { "name": "Leadership Buy-in Level", "value": 53 }
       ]
+    },
+    {
+      "name": "Sustainability Maturity Score",
+      "value": 41,
+      "children": [
+        { "name": "ESG Data Transparency Level", "value": 43 },
+        { "name": "ESG Regulatory Compliance Level", "value": 53 },
+        { "name": "Sustainable & Circular Business Model Adoption Rate", "value": 58 },
+        { "name": "Overall Circularity Metrics Performance ", "value": 73 },
+        { "name": "Supply Chain Sustainability Compliance Rate", "value": 53 }
+      ]
     }
   ]
 }

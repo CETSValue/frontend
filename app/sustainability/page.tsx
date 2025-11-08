@@ -2,9 +2,6 @@
 
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
-import SustainabilityRadarExplorer from "@/components/sustainability-radar-explorer";
-import SustainabilityTreeExplorer from "@/components/sustainability-tree-explorer";
-
 
 import {
   SidebarInset,
@@ -12,6 +9,11 @@ import {
 } from "@/components/ui/sidebar"
 
 import { useUser } from "@auth0/nextjs-auth0"
+
+import TreeExplorer from "@/components/tree-explorer";
+import RadarExplorer from "@/components/radar-explorer";
+
+import Data from "../../public/data/breakeven.json"; // adjust path if needed
 
 const AllowedUsers: string[] = [
   'kulesha@gmail.com',
@@ -69,10 +71,10 @@ export default function Page() {
           <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               <div className="px-4 lg:px-6">
-                <SustainabilityRadarExplorer />
+                <RadarExplorer data={Data} />
               </div>
               <div className="px-4 lg:px-6">
-                <SustainabilityTreeExplorer />
+                <TreeExplorer data={Data} />
               </div>
             </div>
           </div>

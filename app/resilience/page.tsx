@@ -1,21 +1,19 @@
 'use client';
 
 import { AppSidebar } from "@/components/app-sidebar"
-import { ChartAreaInteractive } from "@/components/chart-area-interactive"
-import { DataTable } from "@/components/data-table"
-import { SectionCards } from "@/components/section-cards"
 import { SiteHeader } from "@/components/site-header"
-import SustainabilityWidget from "@/components/chart"
-import ResilienceTreeExplorer
- from "@/components/resilience-tree-explorer";
-import ResilienceRadarExplorer
- from "@/components/resilience-radar-explorer";
+
 import {
   SidebarInset,
   SidebarProvider,
 } from "@/components/ui/sidebar"
 
 import { useUser } from "@auth0/nextjs-auth0"
+
+import TreeExplorer from "@/components/tree-explorer";
+import RadarExplorer from "@/components/radar-explorer";
+
+import Data from "../../public/data/resilience.json"; // adjust path if needed
 
 const AllowedUsers: string[] = [
   'kulesha@gmail.com',
@@ -73,10 +71,10 @@ export default function Page() {
           <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               <div className="px-4 lg:px-6">
-                <ResilienceRadarExplorer />
+                <RadarExplorer data={Data} />
               </div>
               <div className="px-4 lg:px-6">
-                <ResilienceTreeExplorer />
+                <TreeExplorer data={Data} />
               </div>
             </div>
           </div>

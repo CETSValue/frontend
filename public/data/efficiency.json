@@ -29,10 +29,10 @@
             "value": 32,
             "children": [
                 { "name": "Change Management Readiness", "value": 22 },
-                { "name": "Strategic Alignment with Regulatory and Industry trends & requirements", "value": 22 },
+                { "name": "Cost Efficiency", "value": 22 }    
+                { "name": "Alignment with Regulatory & Industry Trends", "value": 22 },
                 { "name": "Key Projects Integration", "value": 22 },
                 { "name": "Time to Market", "value": 22 },
-                { "name": "Cost Efficiency", "value": 22 }    
             ]
         }
     ]

@@ -46,6 +46,7 @@ interface CanvasColumnProps {
   filterItems: (items: Item[]) => Item[];
   large?: boolean;
   tall?: boolean;
+  highlight?: boolean;
 }
 
 interface DraggableItemProps {
@@ -58,13 +59,13 @@ interface DraggableItemProps {
 }
 
 const DEFAULT_SECTIONS : SectionHeader[] = [
-  { id: "impact-materiality", title: "Impact Materiality (Environment)" },
+  { id: "impact-materiality", title: "Impact Materiality (People & Planet)" },
     
   { id: "key-partners", title: "Key Partners" },
   { id: "key-resources", title: "Key Resources" },
   { id: "key-activities", title: "Key Activities" },
 
-  { id: "value-propositions", title: "Value Propositions" },
+  { id: "value-propositions", title: "Value Propositions (Balance of People & Planet & Profit)" },
   
   { id: "customer-segments", title: "Customer Segments" },
   { id: "channels", title: "Customer Channels" },
@@ -76,11 +77,11 @@ const DEFAULT_SECTIONS : SectionHeader[] = [
   
   { id: "cost-structure", title: "Cost Structure" },
   { id: "revenue-streams", title: "Revenue Streams" },
-  { id: "financial-materiality", title: "Financial Materiality" },
+  { id: "financial-materiality", title: "Financial Materiality (Profit)" },
   
 ];
 
-const STORAGE_KEY = "bmc_v5_rdn";
+const STORAGE_KEY = "bmc_v6_rdn";
 
 function uid(prefix = "id") {
   return `${prefix}_${Math.random().toString(36).slice(2, 9)}`;
@@ -271,7 +272,8 @@ export default function BusinessModelCanvas() {
   const center = ["value-propositions"];
   const farright = ["logistics", "postuse"];
   const bottom = ["cost-structure", "revenue-streams", "financial-materiality"];
-  
+  const highlights = ["impact-materiality", "financial-materiality", "postuse"];
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="p-4 max-w-[1400px] mx-auto">
@@ -300,20 +302,20 @@ export default function BusinessModelCanvas() {
 
         <div className="mt-4 grid grid-cols-1 gap-4 py-4">
           {sections.filter((s) => top.includes(s.id)).map((s) => (
-            <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} />
+            <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} highlight={highlights.includes(s.id)} />
           ))}
         </div>
 
         <div className="grid grid-cols-[200px_1fr_200px_200px] gap-4">
           <div className="space-y-4">
             {sections.filter((s) => left.includes(s.id)).map((s) => (
-              <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} />
+              <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} highlight={highlights.includes(s.id)} />
             ))}
           </div>
 
           <div className="space-y-4">
             {sections.filter((s) => center.includes(s.id)).map((s) => (
-              <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} large />
+              <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} large highlight={highlights.includes(s.id)} />
             ))}
           </div>
 
@@ -324,7 +326,7 @@ export default function BusinessModelCanvas() {
           </div>
           <div className="space-y-4">
             {sections.filter((s) => farright.includes(s.id)).map((s) => (
-              <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} tall/>
+              <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} tall highlight={highlights.includes(s.id)} />
             ))}
           </div>
         
@@ -332,7 +334,7 @@ export default function BusinessModelCanvas() {
 
         <div className="mt-4 grid grid-cols-1 gap-4">
           {sections.filter((s) => bottom.includes(s.id)).map((s) => (
-            <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} />
+            <CanvasColumn key={s.id} section={s} addItem={addItem} updateItem={updateItem} deleteItem={deleteItem} moveItem={moveItem} editing={editing} setEditing={setEditing} filterItems={filterItems} highlight={highlights.includes(s.id)} />
           ))}
         </div>
       </div>
@@ -340,7 +342,7 @@ export default function BusinessModelCanvas() {
   );
 }
 
-function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, editing, setEditing, filterItems, large = false, tall = false } : CanvasColumnProps) {
+function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, editing, setEditing, filterItems, large = false, tall = false, highlight = false } : CanvasColumnProps) {
   const [, drop] = useImprovedDrop({
     accept: "ITEM",
     drop: (dragged: { item: Item; fromId: string }) => moveItem(dragged.item, dragged.fromId, section.id),
@@ -349,7 +351,7 @@ function CanvasColumn({ section, addItem, updateItem, deleteItem, moveItem, edit
   const filtered = filterItems(section.items || []);
 
   return (
-    <div ref={drop} className={`bg-white rounded-2xl shadow p-3 ${large ? "min-h-[512px]" : "min-h-[160px]"} ${tall ? "min-h-[248px]" : "min-h-[160px]"}`}>
+    <div ref={drop} className={`${highlight ? "bg-gray-300" : "bg-gray-100"} rounded-2xl border shadow p-3 ${large ? "min-h-[512px]" : "min-h-[160px]"} ${tall ? "min-h-[248px]" : "min-h-[160px]"}`}>
       <div className="flex justify-between mb-2">
         <h2 className="font-semibold">{section.title}</h2>
         <button onClick={() => addItem(section.id)} className="text-xs px-2 py-1 border rounded-md">+ Add</button>

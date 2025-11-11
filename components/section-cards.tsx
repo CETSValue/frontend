@@ -88,8 +88,8 @@ export function SectionCards() {
       <a href="/breakeven">
         <CardHeader>
           <CardDescription>Break-Even Score</CardDescription>
-          <CardTitle className="py-2 text-2xl font-semibold tabular-nums @[250px]/card:text-2xl">
-            1 year<br/> 9 months
+          <CardTitle className="py-5 text-2xl font-semibold tabular-nums @[250px]/card:text-2xl">
+            <span className="bg-yellow-400 lg:px-3 text-white">49</span>
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -114,7 +114,7 @@ export function SectionCards() {
         <CardHeader>
           <CardDescription>Efficiency Score</CardDescription>
           <CardTitle className="py-5 text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            <span className="bg-green-400 lg:px-3 text-white">60%</span>
+            <span className="bg-green-400 lg:px-3 text-white">60</span>
           </CardTitle>
           <CardAction>
             <Badge variant="outline">

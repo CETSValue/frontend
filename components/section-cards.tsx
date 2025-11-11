@@ -88,7 +88,7 @@ export function SectionCards() {
       <a href="/breakeven">
         <CardHeader>
           <CardDescription>Break-Even Score</CardDescription>
-          <CardTitle className="py-5 text-2xl font-semibold tabular-nums @[250px]/card:text-2xl">
+          <CardTitle className="py-5 text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
             <span className="bg-yellow-400 lg:px-3 text-white">49</span>
           </CardTitle>
           <CardAction>

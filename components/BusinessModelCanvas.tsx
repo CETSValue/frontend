@@ -59,13 +59,13 @@ interface DraggableItemProps {
 }
 
 const DEFAULT_SECTIONS : SectionHeader[] = [
-  { id: "impact-materiality", title: "Impact Materiality (Environment)" },
+  { id: "impact-materiality", title: "Impact Materiality (People & Planet)" },
     
   { id: "key-partners", title: "Key Partners" },
   { id: "key-resources", title: "Key Resources" },
   { id: "key-activities", title: "Key Activities" },
 
-  { id: "value-propositions", title: "Value Propositions" },
+  { id: "value-propositions", title: "Value Propositions (Balance of People & Planet & Profit)" },
   
   { id: "customer-segments", title: "Customer Segments" },
   { id: "channels", title: "Customer Channels" },
@@ -77,11 +77,11 @@ const DEFAULT_SECTIONS : SectionHeader[] = [
   
   { id: "cost-structure", title: "Cost Structure" },
   { id: "revenue-streams", title: "Revenue Streams" },
-  { id: "financial-materiality", title: "Financial Materiality" },
+  { id: "financial-materiality", title: "Financial Materiality (Profit)" },
   
 ];
 
-const STORAGE_KEY = "bmc_v5_rdn";
+const STORAGE_KEY = "bmc_v6_rdn";
 
 function uid(prefix = "id") {
   return `${prefix}_${Math.random().toString(36).slice(2, 9)}`;

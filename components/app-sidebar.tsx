@@ -125,22 +125,41 @@ const data = {
   ],
   documents: [
     {
+      name: "Value Chain",
+      url: "#",
+      icon: IconDatabase,
+    },
+    {
       name: "Business Model Canvas",
       url: "/bmcanvas",
       icon: IconReport,
     },
     {
-      name: "Material Flow Analysis",
-      url: "#",
-      icon: IconDatabase,
-    },
+      name: "Roadmap",
+      url: "/roadmap",
+      icon: IconReport,
+    }
+  ],
+  reports: [
     {
-      name: "Circularity Gap Report",
+      name: "Annual Corporate Report",
       url: "#",
       icon: IconReport,
     },
-
+    {
+      name: "Corporate Regulatory Report",
+      url: "#",
+      icon: IconReport,
+    }
   ],
+  materials: [
+  {
+      name: "Global Circularity Report",
+      url: "/gcr",
+      icon: IconDatabase,
+    }
+  ],
+
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -183,7 +202,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
+        <NavDocuments title="Recommendations" items={data.documents} />
+        <NavDocuments title="Reports" items={data.reports} />
+        <NavDocuments title="Supporting Frameworks & Resources" items={data.materials} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>

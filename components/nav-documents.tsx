@@ -26,8 +26,10 @@ import {
 } from "@/components/ui/sidebar"
 
 export function NavDocuments({
+  title,
   items,
 }: {
+  title: string,
   items: {
     name: string
     url: string
@@ -36,9 +38,10 @@ export function NavDocuments({
 }) {
   const { isMobile } = useSidebar()
 
+  
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>Reports</SidebarGroupLabel>
+      <SidebarGroupLabel>{title}</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
@@ -47,41 +50,10 @@ export function NavDocuments({
                 <item.icon />
                 <span>{item.name}</span>
               </a>
-            </SidebarMenuButton>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuAction
-                  showOnHover
-                  className="data-[state=open]:bg-accent rounded-sm"
-                >
-                  <IconDots />
-                  <span className="sr-only">More</span>
-                </SidebarMenuAction>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                className="w-24 rounded-lg"
-                side={isMobile ? "bottom" : "right"}
-                align={isMobile ? "end" : "start"}
-              >
-                <DropdownMenuItem>
-                  <IconFolder />
-                  <span>Open</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <IconShare3 />
-                  <span>Share</span>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">
-                  <IconTrash />
-                  <span>Delete</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            </SidebarMenuButton> 
           </SidebarMenuItem>
         ))}
       </SidebarMenu>
-       <SidebarGroupLabel>Recommendations</SidebarGroupLabel>
     </SidebarGroup>
   )
 }

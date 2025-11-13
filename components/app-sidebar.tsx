@@ -155,7 +155,7 @@ const data = {
   materials: [
   {
       name: "Global Circularity Report",
-      url: "/gcr",
+      url: "/framework",
       icon: IconDatabase,
     }
   ],

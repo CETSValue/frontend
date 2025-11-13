@@ -1,0 +1,86 @@
+'use client';
+
+import { AppSidebar } from "@/components/app-sidebar"
+import { SiteHeader } from "@/components/site-header"
+import Image from "next/image";
+
+import {
+  SidebarInset,
+  SidebarProvider,
+} from "@/components/ui/sidebar"
+
+import { useUser } from "@auth0/nextjs-auth0"
+
+const AllowedUsers: string[] = [
+  'kulesha@gmail.com',
+  'cyril.journoux@gmail.com',
+  'iryna.parfenava@gmail.com',
+  'soraya.kadra@outlook.com'
+]
+
+export default function Page() {
+  const { user, isLoading } = useUser();
+
+  console.log(user)
+  if (user && user.email) {
+    if (AllowedUsers.indexOf(user.email) < 0 ) {
+    return (
+      <SidebarProvider
+        style={
+          {
+            "--sidebar-width": "calc(var(--spacing) * 72)",
+            "--header-height": "calc(var(--spacing) * 12)",
+          } as React.CSSProperties
+        }
+      >
+        <AppSidebar variant="inset" />
+        <SidebarInset>
+          <SiteHeader />
+          <div className="flex flex-1 flex-col">
+            <div className="@container/main flex flex-1 flex-col gap-2">
+              <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+                <div className="px-4 lg:px-6">
+                  You are not allowed to access this page (signed in as <span className="font-bold">{user?.email ?? 'unknown user'}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SidebarInset>
+      </SidebarProvider>
+    )
+    }
+  }
+
+  return (
+    <SidebarProvider
+      style={
+        {
+          "--sidebar-width": "calc(var(--spacing) * 72)",
+          "--header-height": "calc(var(--spacing) * 12)",
+        } as React.CSSProperties
+      }
+    >
+      <AppSidebar variant="inset" />
+      <SidebarInset>
+        <SiteHeader />
+        <div className="flex flex-1 flex-col">
+          <div className="@container/main flex flex-1 flex-col gap-2">
+            <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+              <div className="px-4 lg:px-6">
+                <Image src="/img/framework.png" alt="GCP Impact Analysis" width="1200" height="400" />
+              </div>
+            </div>
+            <div className="px-4 lg:px-6 font-sm">
+              <a className="text-muted-foreground text-lg"  style={
+                        {
+                          "color": "#6634A2",
+                          "font-weight" : "700",
+                        } as React.CSSProperties
+                      } target="_blank" rel="noopener noreferrer" href="https://www.wbcsd.org/resources/gcp-impact-analysis">Read about Global Circularity Protocol for Business Impact Analysis </a>
+            </div>
+          </div>
+        </div>
+      </SidebarInset>
+    </SidebarProvider>
+  )
+}

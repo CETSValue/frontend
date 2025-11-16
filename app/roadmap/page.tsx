@@ -67,7 +67,7 @@ export default function Page() {
           <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               <div className="px-4 lg:px-6">
-                <Image src="/img/roadmap.png" alt="Company Roadmap" width="1200" height="400" />
+                <Image src="/img/roadmap2.png" alt="Company Roadmap" width="1500" height="600" />
               </div>
             </div>
           </div>

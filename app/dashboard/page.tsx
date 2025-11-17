@@ -12,7 +12,7 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 
-import data from "./data.json"
+import data from "./ce-data.json"
 
 import { useUser } from "@auth0/nextjs-auth0"
 import { SectionSGDImpact } from "@/components/section-sdg-impact";
@@ -85,10 +85,12 @@ export default function Page() {
                 <MaterialFlowDiagram />
               </div>
 
-              <div className="px-4 lg:px-6 py-20">
+
+              <DataTable data={data} />
+              
+              <div className="px-4 lg:px-6">
                 <ChartAreaInteractive />
               </div>
-              <DataTable data={data} />
             </div>
           </div>
         </div>

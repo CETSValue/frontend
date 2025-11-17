@@ -21,6 +21,7 @@ import {
 } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
 import {
+  IconAbacus,
   IconChevronDown,
   IconChevronLeft,
   IconChevronRight,
@@ -108,11 +109,10 @@ import {
 
 export const schema = z.object({
   id: z.number(),
+  focus: z.string(),
   header: z.string(),
   type: z.string(),
   status: z.string(),
-  target: z.string(),
-  limit: z.string(),
   reviewer: z.string(),
 })
 
@@ -169,8 +169,19 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     enableHiding: false,
   },
   {
+    accessorKey: "focus",
+    header: "Focus Area",
+    cell: ({ row }) => (
+      <div className="w-24">
+        <Badge variant="outline" className="text-muted-foreground px-1">
+          {row.original.focus}
+        </Badge>
+      </div>
+    ),
+  },
+  {
     accessorKey: "header",
-    header: "Header",
+    header: "Action",
     cell: ({ row }) => {
       return <TableCellViewer item={row.original} />
     },
@@ -178,14 +189,14 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   },
   {
     accessorKey: "type",
-    header: "Section Type",
-    cell: ({ row }) => (
-      <div className="w-32">
-        <Badge variant="outline" className="text-muted-foreground px-1.5">
-          {row.original.type}
-        </Badge>
-      </div>
-    ),
+    header: "Affected Pillars",
+    cell: ({ row }) => 
+      row.original.type.split(';').map( (e) => (
+        <div className="w-48">
+          <Badge variant="outline" className="text-muted-foreground px-1">{e}</Badge></div>
+        )
+      )
+    ,
   },
   {
     accessorKey: "status",
@@ -194,66 +205,16 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       <Badge variant="outline" className="text-muted-foreground px-1.5">
         {row.original.status === "Done" ? (
           <IconCircleCheckFilled className="fill-green-500 dark:fill-green-400" />
-        ) : (
-          <IconLoader />
-        )}
+        ) : 
+          row.original.status === "To Do" ? <IconAbacus /> : <IconLoader />
+        }
         {row.original.status}
       </Badge>
     ),
   },
   {
-    accessorKey: "target",
-    header: () => <div className="w-full text-right">Target</div>,
-    cell: ({ row }) => (
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
-            loading: `Saving ${row.original.header}`,
-            success: "Done",
-            error: "Error",
-          })
-        }}
-      >
-        <Label htmlFor={`${row.original.id}-target`} className="sr-only">
-          Target
-        </Label>
-        <Input
-          className="hover:bg-input/30 focus-visible:bg-background dark:hover:bg-input/30 dark:focus-visible:bg-input/30 h-8 w-16 border-transparent bg-transparent text-right shadow-none focus-visible:border dark:bg-transparent"
-          defaultValue={row.original.target}
-          id={`${row.original.id}-target`}
-        />
-      </form>
-    ),
-  },
-  {
-    accessorKey: "limit",
-    header: () => <div className="w-full text-right">Limit</div>,
-    cell: ({ row }) => (
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          toast.promise(new Promise((resolve) => setTimeout(resolve, 1000)), {
-            loading: `Saving ${row.original.header}`,
-            success: "Done",
-            error: "Error",
-          })
-        }}
-      >
-        <Label htmlFor={`${row.original.id}-limit`} className="sr-only">
-          Limit
-        </Label>
-        <Input
-          className="hover:bg-input/30 focus-visible:bg-background dark:hover:bg-input/30 dark:focus-visible:bg-input/30 h-8 w-16 border-transparent bg-transparent text-right shadow-none focus-visible:border dark:bg-transparent"
-          defaultValue={row.original.limit}
-          id={`${row.original.id}-limit`}
-        />
-      </form>
-    ),
-  },
-  {
     accessorKey: "reviewer",
-    header: "Reviewer",
+    header: "Assignee",
     cell: ({ row }) => {
       const isAssigned = row.original.reviewer !== "Assign reviewer"
 
@@ -272,7 +233,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
               size="sm"
               id={`${row.original.id}-reviewer`}
             >
-              <SelectValue placeholder="Assign reviewer" />
+              <SelectValue placeholder="Unassigned" />
             </SelectTrigger>
             <SelectContent align="end">
               <SelectItem value="Eddie Lake">Eddie Lake</SelectItem>
@@ -404,7 +365,7 @@ export function DataTable({
   return (
     <Tabs
       defaultValue="outline"
-      className="w-full flex-col justify-start gap-6"
+      className="w-full flex-col justify-start gap-6 py-20"
     >
       <div className="flex items-center justify-between px-4 lg:px-6">
         <Label htmlFor="view-selector" className="sr-only">
@@ -419,26 +380,34 @@ export function DataTable({
             <SelectValue placeholder="Select a view" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="outline">Recommendations</SelectItem>
-            <SelectItem value="past-performance">Resilience</SelectItem>
-            <SelectItem value="key-personnel">Sustainability</SelectItem>
-            <SelectItem value="focus-documents">Profit</SelectItem>
+            <SelectItem value="recommendations">Recommendations</SelectItem>
+            <SelectItem value="ce">Circularity & Sustainability</SelectItem>
+            <SelectItem value="profitability">Profitability</SelectItem>
+            <SelectItem value="resilience">Resilience</SelectItem>
+            <SelectItem value="breakeven">Break-Even</SelectItem>
+            <SelectItem value="efficiency">Efficiency</SelectItem>
+
           </SelectContent>
         </Select>
         <TabsList className="**:data-[slot=badge]:bg-muted-foreground/30 hidden **:data-[slot=badge]:size-5 **:data-[slot=badge]:rounded-full **:data-[slot=badge]:px-1 @4xl/main:flex">
-          <TabsTrigger value="outline">
-            Recommendations <Badge variant="secondary">68</Badge>
+          <TabsTrigger value="recommendations">
+            Recommendations <Badge variant="secondary">7</Badge>
           </TabsTrigger>
-          <TabsTrigger value="past-performance">
-            Resilience <Badge variant="secondary">3</Badge>
+          <TabsTrigger value="ce">
+            Circularity & Sustainability <Badge variant="secondary">5</Badge>
           </TabsTrigger>
-          <TabsTrigger value="key-personnel">
-            Sustainability <Badge variant="secondary">2</Badge>
+          <TabsTrigger value="profitability">
+            Profitability <Badge variant="secondary">1</Badge>
           </TabsTrigger>
-          <TabsTrigger value="focus-documents">
-            Profit <Badge variant="secondary">6</Badge> </TabsTrigger>
-          <TabsTrigger value="focus-documents">
-            Efficiency <Badge variant="secondary">0</Badge> </TabsTrigger>
+          <TabsTrigger value="resilience">
+            Resilience <Badge variant="secondary">3</Badge> 
+          </TabsTrigger>
+          <TabsTrigger value="breakeven">
+            Break-Even <Badge variant="secondary">2</Badge>
+          </TabsTrigger>
+           <TabsTrigger value="efficiency">
+            Efficiency <Badge variant="secondary">0</Badge>
+          </TabsTrigger>
         </TabsList>
       </div>
       <TabsContent
@@ -701,8 +670,8 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
                     <SelectValue placeholder="Select a type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Table of Contents">
-                      Table of Contents
+                    <SelectItem value="Table of Contents 2">
+                      Table of Contents 2
                     </SelectItem>
                     <SelectItem value="Executive Summary">
                       Executive Summary
@@ -732,16 +701,6 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
                     <SelectItem value="Not Started">Not Started</SelectItem>
                   </SelectContent>
                 </Select>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex flex-col gap-3">
-                <Label htmlFor="target">Target</Label>
-                <Input id="target" defaultValue={item.target} />
-              </div>
-              <div className="flex flex-col gap-3">
-                <Label htmlFor="limit">Limit</Label>
-                <Input id="limit" defaultValue={item.limit} />
               </div>
             </div>
             <div className="flex flex-col gap-3">

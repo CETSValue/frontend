@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "focus": "Design", 
+    "header": "Define technical specifications, including X% recycled content",
+    "type": "Circular Economy & Sustainability",
+    "status": "In Progress",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 2,
+    "focus": "Business", 
+    "header": "Generate ideas for business diversification horizon 2030",
+    "type": "Resilience",
+    "status": "Done",
+    "reviewer": "Eddie Lake"
+  },
+  {
+    "id": 3,
+    "focus": "Capabilities", 
+    "header": "Evaluate the feasability of the technology transfer",
+    "type": "Circular Economy & Sustainability",
+    "status": "In Progress",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 4,
+    "focus": "CE Literacy",
+    "header": "Design CE training",
+    "type": "Circular Economy & Sustainability",
+    "status": "Done",
+    "reviewer": "Jamik Tashpulatov"
+  },
+  {
+    "id": 5,
+    "focus": "Supply chain",
+    "type": "Circular Economy & Sustainability; Resilience; Break-Even",
+    "header": "List criteria for local sustainability driven suppliers",
+    "status": "In Progress",
+    "reviewer": "Carlos Rodriguez"
+  },
+  {
+    "id": 6,
+    "focus": "Supply chain",
+    "header": "Identify alternative suppliers of recycled materials based on the predefined criteria",
+    "type": "Circular Economy & Sustainability; Resilience; Break-Even",
+    "status": "To Do",
+    "reviewer": "Assign reviewer"
+  },
+  {
+    "id": 7,
+    "focus": "Client",
+    "header": "Negotiate a price, based on the defined margins",
+    "type": "Profitability",
+    "status": "To Do",
+    "reviewer": "Assign reviewer"
+  }
+
+]

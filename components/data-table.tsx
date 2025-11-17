@@ -380,7 +380,7 @@ export function DataTable({
             <SelectValue placeholder="Select a view" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="recommendations">Recommendations</SelectItem>
+            <SelectItem value="outline">Recommendations</SelectItem>
             <SelectItem value="ce">Circularity & Sustainability</SelectItem>
             <SelectItem value="profitability">Profitability</SelectItem>
             <SelectItem value="resilience">Resilience</SelectItem>
@@ -390,7 +390,7 @@ export function DataTable({
           </SelectContent>
         </Select>
         <TabsList className="**:data-[slot=badge]:bg-muted-foreground/30 hidden **:data-[slot=badge]:size-5 **:data-[slot=badge]:rounded-full **:data-[slot=badge]:px-1 @4xl/main:flex">
-          <TabsTrigger value="recommendations">
+          <TabsTrigger value="outline">
             Recommendations <Badge variant="secondary">7</Badge>
           </TabsTrigger>
           <TabsTrigger value="ce">

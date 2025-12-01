@@ -37,7 +37,7 @@ interface NodeParams {
     data: Node
 }
 
-const lastUpdated = "17 Nov 2025 15:00";
+const lastUpdated = "01 Dec 2025 16:47";
 
 // ---- Custom node component with icon + label ----
 const CustomNode = ({ data }: NodeParams) => (
